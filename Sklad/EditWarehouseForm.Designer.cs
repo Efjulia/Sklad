@@ -79,6 +79,7 @@ namespace Sklad
             this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Название";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -88,6 +89,7 @@ namespace Sklad
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Телефон";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -105,6 +107,7 @@ namespace Sklad
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(400, 27);
             this.textBox1.TabIndex = 6;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -112,6 +115,7 @@ namespace Sklad
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(400, 27);
             this.textBox2.TabIndex = 7;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
@@ -119,6 +123,7 @@ namespace Sklad
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(400, 27);
             this.textBox3.TabIndex = 8;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
@@ -126,6 +131,7 @@ namespace Sklad
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(400, 27);
             this.textBox4.TabIndex = 9;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // EditWarehouseForm
             // 
