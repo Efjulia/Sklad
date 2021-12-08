@@ -77,5 +77,11 @@ namespace Sklad
            // AUform.ShowDialog();
            // this.Show();
         }
+
+        private void NewuserMenu_Click(object sender, EventArgs e)
+        {
+            Registration Regform = new Registration();
+            Regform.ShowDialog();
+        }
     }
 }

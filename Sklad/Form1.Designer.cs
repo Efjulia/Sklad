@@ -44,19 +44,23 @@ namespace Sklad
             this.departmentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UsersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.NewuserMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.Edituser = new System.Windows.Forms.ToolStripMenuItem();
             this.DetailMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adddetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.editdetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deletedetailMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShtrihMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GenShtrih = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReadShtrih = new System.Windows.Forms.ToolStripMenuItem();
+            this.PrintShtrih = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UsersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewuserMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.Edituser = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -65,10 +69,6 @@ namespace Sklad
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ShtrihMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GenShtrih = new System.Windows.Forms.ToolStripMenuItem();
-            this.ReadShtrih = new System.Windows.Forms.ToolStripMenuItem();
-            this.PrintShtrih = new System.Windows.Forms.ToolStripMenuItem();
             warehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -188,27 +188,6 @@ namespace Sklad
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(283, 26);
             this.optionsToolStripMenuItem.Text = "Редактировать контрагента";
             // 
-            // UsersMenuItem
-            // 
-            this.UsersMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewuserMenu,
-            this.Edituser});
-            this.UsersMenuItem.Name = "UsersMenuItem";
-            this.UsersMenuItem.Size = new System.Drawing.Size(105, 24);
-            this.UsersMenuItem.Text = "Сотрудники";
-            // 
-            // NewuserMenu
-            // 
-            this.NewuserMenu.Name = "NewuserMenu";
-            this.NewuserMenu.Size = new System.Drawing.Size(277, 26);
-            this.NewuserMenu.Text = "Создать сотрудника";
-            // 
-            // Edituser
-            // 
-            this.Edituser.Name = "Edituser";
-            this.Edituser.Size = new System.Drawing.Size(277, 26);
-            this.Edituser.Text = "Редактировать сотрудника";
-            // 
             // DetailMenuItem
             // 
             this.DetailMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -236,6 +215,34 @@ namespace Sklad
             this.deletedetailMenu.Name = "deletedetailMenu";
             this.deletedetailMenu.Size = new System.Drawing.Size(244, 26);
             this.deletedetailMenu.Text = "Удалить деталь";
+            // 
+            // ShtrihMenuItem
+            // 
+            this.ShtrihMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GenShtrih,
+            this.ReadShtrih,
+            this.PrintShtrih});
+            this.ShtrihMenuItem.Name = "ShtrihMenuItem";
+            this.ShtrihMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.ShtrihMenuItem.Text = "Штрих-код";
+            // 
+            // GenShtrih
+            // 
+            this.GenShtrih.Name = "GenShtrih";
+            this.GenShtrih.Size = new System.Drawing.Size(190, 26);
+            this.GenShtrih.Text = "Генерировать";
+            // 
+            // ReadShtrih
+            // 
+            this.ReadShtrih.Name = "ReadShtrih";
+            this.ReadShtrih.Size = new System.Drawing.Size(190, 26);
+            this.ReadShtrih.Text = "Считать";
+            // 
+            // PrintShtrih
+            // 
+            this.PrintShtrih.Name = "PrintShtrih";
+            this.PrintShtrih.Size = new System.Drawing.Size(190, 26);
+            this.PrintShtrih.Text = "Печать";
             // 
             // helpMenuItem
             // 
@@ -277,6 +284,28 @@ namespace Sklad
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.aboutToolStripMenuItem.Text = "&О программе...";
+            // 
+            // UsersMenuItem
+            // 
+            this.UsersMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewuserMenu,
+            this.Edituser});
+            this.UsersMenuItem.Name = "UsersMenuItem";
+            this.UsersMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.UsersMenuItem.Text = "Сотрудники";
+            // 
+            // NewuserMenu
+            // 
+            this.NewuserMenu.Name = "NewuserMenu";
+            this.NewuserMenu.Size = new System.Drawing.Size(277, 26);
+            this.NewuserMenu.Text = "Создать сотрудника";
+            this.NewuserMenu.Click += new System.EventHandler(this.NewuserMenu_Click);
+            // 
+            // Edituser
+            // 
+            this.Edituser.Name = "Edituser";
+            this.Edituser.Size = new System.Drawing.Size(277, 26);
+            this.Edituser.Text = "Редактировать сотрудника";
             // 
             // undoToolStripMenuItem
             // 
@@ -334,34 +363,6 @@ namespace Sklad
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.selectAllToolStripMenuItem.Text = "Select &All";
-            // 
-            // ShtrihMenuItem
-            // 
-            this.ShtrihMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.GenShtrih,
-            this.ReadShtrih,
-            this.PrintShtrih});
-            this.ShtrihMenuItem.Name = "ShtrihMenuItem";
-            this.ShtrihMenuItem.Size = new System.Drawing.Size(98, 24);
-            this.ShtrihMenuItem.Text = "Штрих-код";
-            // 
-            // GenShtrih
-            // 
-            this.GenShtrih.Name = "GenShtrih";
-            this.GenShtrih.Size = new System.Drawing.Size(190, 26);
-            this.GenShtrih.Text = "Генерировать";
-            // 
-            // ReadShtrih
-            // 
-            this.ReadShtrih.Name = "ReadShtrih";
-            this.ReadShtrih.Size = new System.Drawing.Size(190, 26);
-            this.ReadShtrih.Text = "Считать";
-            // 
-            // PrintShtrih
-            // 
-            this.PrintShtrih.Name = "PrintShtrih";
-            this.PrintShtrih.Size = new System.Drawing.Size(190, 26);
-            this.PrintShtrih.Text = "Печать";
             // 
             // Form1
             // 
