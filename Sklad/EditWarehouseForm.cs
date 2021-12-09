@@ -40,6 +40,7 @@ namespace Sklad
 
             SQLClass.Insert("UPDATE `warehouse`  SET" + " `name` = '" + textBox1.Text + "'," + " `address` = '" + textBox2.Text + "'," +
                     " `phone` = '" + textBox3.Text + "'," + " `size` = " + Convert.ToInt32(textBox4.Text) + " WHERE `id` = " + id);
+            this.Close();
 
         }
 

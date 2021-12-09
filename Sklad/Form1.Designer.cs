@@ -42,8 +42,8 @@ namespace Sklad
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewDepartmentMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditDepatmentMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.DetailMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adddetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.editdetailMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,23 +170,24 @@ namespace Sklad
             // departmentMenuItem
             // 
             this.departmentMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customizeToolStripMenuItem,
-            this.optionsToolStripMenuItem});
+            this.NewDepartmentMenu,
+            this.EditDepatmentMenu});
             this.departmentMenuItem.Name = "departmentMenuItem";
             this.departmentMenuItem.Size = new System.Drawing.Size(113, 24);
             this.departmentMenuItem.Text = "&Контрагенты";
             // 
-            // customizeToolStripMenuItem
+            // NewDepartmentMenu
             // 
-            this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(283, 26);
-            this.customizeToolStripMenuItem.Text = "Создать контрагента";
+            this.NewDepartmentMenu.Name = "NewDepartmentMenu";
+            this.NewDepartmentMenu.Size = new System.Drawing.Size(283, 26);
+            this.NewDepartmentMenu.Text = "Создать контрагента";
+            this.NewDepartmentMenu.Click += new System.EventHandler(this.NewDepartmentMenu_Click);
             // 
-            // optionsToolStripMenuItem
+            // EditDepatmentMenu
             // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(283, 26);
-            this.optionsToolStripMenuItem.Text = "Редактировать контрагента";
+            this.EditDepatmentMenu.Name = "EditDepatmentMenu";
+            this.EditDepatmentMenu.Size = new System.Drawing.Size(283, 26);
+            this.EditDepatmentMenu.Text = "Редактировать контрагента";
             // 
             // DetailMenuItem
             // 
@@ -387,7 +388,7 @@ namespace Sklad
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem customizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NewDepartmentMenu;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
@@ -425,6 +426,7 @@ namespace Sklad
         private System.Windows.Forms.ToolStripMenuItem GenShtrih;
         private System.Windows.Forms.ToolStripMenuItem ReadShtrih;
         private System.Windows.Forms.ToolStripMenuItem PrintShtrih;
+        private System.Windows.Forms.ToolStripMenuItem EditDepatmentMenu;
     }
 }
 

@@ -83,5 +83,10 @@ namespace Sklad
             Registration Regform = new Registration();
             Regform.ShowDialog();
         }
+
+        private void NewDepartmentMenu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
