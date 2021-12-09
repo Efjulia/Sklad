@@ -35,7 +35,7 @@ namespace Sklad
 
                 if (registered != "0")
                 {
-                    MessageBox.Show("Такой склад уже существует!");
+                    MessageBox.Show("Такой контрагент уже существует!");
                     return;
                 }
 
@@ -61,7 +61,7 @@ namespace Sklad
 
                 Close();
             } 
-/        }
+        }
 
         private void label4_Click(object sender, EventArgs e)
         {
