@@ -86,7 +86,8 @@ namespace Sklad
 
         private void NewDepartmentMenu_Click(object sender, EventArgs e)
         {
-
+            NewDepartment NewDepform = new NewDepartment();
+            NewDepform.ShowDialog();
         }
     }
 }

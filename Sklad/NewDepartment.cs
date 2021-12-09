@@ -17,15 +17,25 @@ namespace Sklad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int type_department = 1;
-            /*
-             *              
+            int type_department = 1; //внутренний
+
+            if (comboBox1.SelectedIndex == 0)
+            {
+                type_department = 1;
+               // MessageBox.Show("Внутренний!");
+
+            }
+            if (comboBox1.SelectedIndex == 1)
+            {
+                type_department = 2;
+            }
+                          
                 string registered = SQLClass.Select(
-                    "SELECT COUNT(*) FROM `users` WHERE `login` = '" + textBox1.Text + "'")[0];
+                    "SELECT COUNT(*) FROM `department` WHERE `name` = '" + textBox1.Text + "'")[0];
 
                 if (registered != "0")
                 {
-                    MessageBox.Show("Вы уже зарегистрированы!");
+                    MessageBox.Show("Такой склад уже существует!");
                     return;
                 }
 
@@ -45,18 +55,36 @@ namespace Sklad
                     type_department = 2;
                 }
 
-                SQLClass.Insert("INSERT INTO `users`(`login`, `password`, `role`) VALUES(" +
-                      "'" + textBox1.Text + "', '" + textBox2.Text + "', '" + role_user + "')");
-                MessageBox.Show("Теперь можно входить в систему");
+                SQLClass.Insert("INSERT INTO `department`( `name`,`type`, `address`,  `phone`, `fio`) VALUES(" +
+                      "'" + textBox1.Text + "', '" + type_department + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox4.Text + "')");
+                MessageBox.Show("ok");
 
                 Close();
             } 
-            INSERT INTO `department`( `name`, `type`, `fio`, `phone`, `address`) VALUES([value - 1],[value-2],[value-3],[value-4],[value-5],[value-6]);*/
-        }
+/        }
 
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NewDepartment_Load(object sender, EventArgs e)
+        {
+            button1.Enabled = false;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == -1)
+            {
+                button1.Enabled = false;
+            }
+            else button1.Enabled = true;
         }
     }
 }
