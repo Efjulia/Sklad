@@ -204,6 +204,7 @@ namespace Sklad
             this.adddetailMenu.Name = "adddetailMenu";
             this.adddetailMenu.Size = new System.Drawing.Size(244, 26);
             this.adddetailMenu.Text = "Добавить деталь";
+            this.adddetailMenu.Click += new System.EventHandler(this.adddetailMenu_Click);
             // 
             // editdetailMenu
             // 

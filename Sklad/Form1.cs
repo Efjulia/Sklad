@@ -89,5 +89,11 @@ namespace Sklad
             NewDepartment NewDepform = new NewDepartment();
             NewDepform.ShowDialog();
         }
+
+        private void adddetailMenu_Click(object sender, EventArgs e)
+        {
+            NewDetailForm NewDetail = new NewDetailForm();
+            NewDetail.ShowDialog();
+        }
     }
 }
