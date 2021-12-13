@@ -44,17 +44,19 @@ namespace Sklad
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(475, 417);
+            this.button1.Location = new System.Drawing.Point(476, 503);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(224, 31);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Создать деталь";
+            this.button1.Text = "Деталь";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -77,9 +79,10 @@ namespace Sklad
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(27, 144);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 20);
+            this.label4.Size = new System.Drawing.Size(33, 20);
             this.label4.TabIndex = 23;
-            this.label4.Text = "Стеллаж";
+            this.label4.Text = "Ряд";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -127,7 +130,7 @@ namespace Sklad
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 249);
+            this.label6.Location = new System.Drawing.Point(30, 369);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 20);
             this.label6.TabIndex = 30;
@@ -135,6 +138,8 @@ namespace Sklad
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.comboBox3);
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.comboBox1);
@@ -143,7 +148,7 @@ namespace Sklad
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(360, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(340, 374);
+            this.groupBox1.Size = new System.Drawing.Size(340, 487);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Расположение";
@@ -157,6 +162,7 @@ namespace Sklad
             this.comboBox3.Size = new System.Drawing.Size(297, 28);
             this.comboBox3.TabIndex = 33;
             this.comboBox3.Text = "Выберите склад";
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -170,7 +176,7 @@ namespace Sklad
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(31, 299);
+            this.comboBox1.Location = new System.Drawing.Point(30, 426);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(296, 28);
             this.comboBox1.TabIndex = 31;
@@ -190,11 +196,28 @@ namespace Sklad
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Параметры детали";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(30, 261);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 20);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Стеллаж";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(25, 305);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(300, 28);
+            this.comboBox4.TabIndex = 35;
+            // 
             // NewDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 469);
+            this.ClientSize = new System.Drawing.Size(721, 559);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -226,5 +249,7 @@ namespace Sklad
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }
