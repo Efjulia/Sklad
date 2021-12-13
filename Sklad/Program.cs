@@ -35,17 +35,17 @@ namespace Sklad
             db.UserID = "root"; // Имя пользователя БД
                                 // db.Password = "ca8484adc89a"; // Пароль пользователя БД
             db.CharacterSet = "utf8"; // Кодировка Базы Данных
-            try
-            {
+           // try
+        //    {
                 SQLClass.conn = new MySqlConnection(db.ConnectionString);
                 SQLClass.conn.Open();
             Application.Run(new Form1());
             SQLClass.conn.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка в подключении БД");
-            }
+        //    }
+       //     catch
+        //    {
+        //        MessageBox.Show("Ошибка в подключении БД");
+        //    }
              
         }
     }

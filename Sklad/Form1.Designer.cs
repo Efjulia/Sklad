@@ -36,6 +36,8 @@ namespace Sklad
             this.editwarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deletewarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.reportwarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.newshelfMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.editshelfmenu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.enterMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,8 +71,10 @@ namespace Sklad
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newshelfMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.editshelfmenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.newcellmenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.editcellmenu = new System.Windows.Forms.ToolStripMenuItem();
             warehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -83,8 +87,12 @@ namespace Sklad
             this.editwarehouseMenu,
             this.deletewarehouseMenu,
             this.reportwarehouseMenu,
+            this.toolStripSeparator1,
             this.newshelfMenu,
-            this.editshelfmenu});
+            this.editshelfmenu,
+            this.toolStripSeparator2,
+            this.newcellmenu,
+            this.editcellmenu});
             warehouseMenuItem.Name = "warehouseMenuItem";
             warehouseMenuItem.Size = new System.Drawing.Size(74, 24);
             warehouseMenuItem.Text = "&Склады";
@@ -122,6 +130,19 @@ namespace Sklad
             this.reportwarehouseMenu.Name = "reportwarehouseMenu";
             this.reportwarehouseMenu.Size = new System.Drawing.Size(254, 26);
             this.reportwarehouseMenu.Text = "Отчет";
+            // 
+            // newshelfMenu
+            // 
+            this.newshelfMenu.Name = "newshelfMenu";
+            this.newshelfMenu.Size = new System.Drawing.Size(254, 26);
+            this.newshelfMenu.Text = "Создать стеллаж";
+            this.newshelfMenu.Click += new System.EventHandler(this.newshelfMenu_Click);
+            // 
+            // editshelfmenu
+            // 
+            this.editshelfmenu.Name = "editshelfmenu";
+            this.editshelfmenu.Size = new System.Drawing.Size(254, 26);
+            this.editshelfmenu.Text = "Редактировать стеллаж";
             // 
             // menuStrip1
             // 
@@ -370,18 +391,27 @@ namespace Sklad
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.selectAllToolStripMenuItem.Text = "Select &All";
             // 
-            // newshelfMenu
+            // toolStripSeparator1
             // 
-            this.newshelfMenu.Name = "newshelfMenu";
-            this.newshelfMenu.Size = new System.Drawing.Size(254, 26);
-            this.newshelfMenu.Text = "Создать стеллаж";
-            this.newshelfMenu.Click += new System.EventHandler(this.newshelfMenu_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(251, 6);
             // 
-            // editshelfmenu
+            // toolStripSeparator2
             // 
-            this.editshelfmenu.Name = "editshelfmenu";
-            this.editshelfmenu.Size = new System.Drawing.Size(254, 26);
-            this.editshelfmenu.Text = "Редактировать стеллаж";
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(251, 6);
+            // 
+            // newcellmenu
+            // 
+            this.newcellmenu.Name = "newcellmenu";
+            this.newcellmenu.Size = new System.Drawing.Size(254, 26);
+            this.newcellmenu.Text = "Создать ячейку";
+            // 
+            // editcellmenu
+            // 
+            this.editcellmenu.Name = "editcellmenu";
+            this.editcellmenu.Size = new System.Drawing.Size(254, 26);
+            this.editcellmenu.Text = "Редактировать ячейку";
             // 
             // Form1
             // 
@@ -447,6 +477,10 @@ namespace Sklad
         private System.Windows.Forms.ToolStripMenuItem EditDepatmentMenu;
         private System.Windows.Forms.ToolStripMenuItem newshelfMenu;
         private System.Windows.Forms.ToolStripMenuItem editshelfmenu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem newcellmenu;
+        private System.Windows.Forms.ToolStripMenuItem editcellmenu;
     }
 }
 
