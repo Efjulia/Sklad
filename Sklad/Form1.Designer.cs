@@ -41,13 +41,6 @@ namespace Sklad
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.departmentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.NewDepartmentMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditDepatmentMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.DetailMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adddetailMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.editdetailMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.deletedetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ShtrihMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GenShtrih = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadShtrih = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +51,13 @@ namespace Sklad
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.departmentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewDepartmentMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditDepatmentMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.DetailMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adddetailMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.editdetailMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletedetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.UsersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewuserMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.Edituser = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +69,8 @@ namespace Sklad
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newshelfMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.editshelfmenu = new System.Windows.Forms.ToolStripMenuItem();
             warehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +82,9 @@ namespace Sklad
             this.newwarehouseMenu,
             this.editwarehouseMenu,
             this.deletewarehouseMenu,
-            this.reportwarehouseMenu});
+            this.reportwarehouseMenu,
+            this.newshelfMenu,
+            this.editshelfmenu});
             warehouseMenuItem.Name = "warehouseMenuItem";
             warehouseMenuItem.Size = new System.Drawing.Size(74, 24);
             warehouseMenuItem.Text = "&Склады";
@@ -89,34 +93,34 @@ namespace Sklad
             // showwarehouseMenu
             // 
             this.showwarehouseMenu.Name = "showwarehouseMenu";
-            this.showwarehouseMenu.Size = new System.Drawing.Size(236, 26);
+            this.showwarehouseMenu.Size = new System.Drawing.Size(254, 26);
             this.showwarehouseMenu.Text = "Обзор склада";
             this.showwarehouseMenu.Click += new System.EventHandler(this.showwarehouseMenu_Click);
             // 
             // newwarehouseMenu
             // 
             this.newwarehouseMenu.Name = "newwarehouseMenu";
-            this.newwarehouseMenu.Size = new System.Drawing.Size(236, 26);
+            this.newwarehouseMenu.Size = new System.Drawing.Size(254, 26);
             this.newwarehouseMenu.Text = "Создать склад";
             this.newwarehouseMenu.Click += new System.EventHandler(this.newwarehouseMenu_Click);
             // 
             // editwarehouseMenu
             // 
             this.editwarehouseMenu.Name = "editwarehouseMenu";
-            this.editwarehouseMenu.Size = new System.Drawing.Size(236, 26);
+            this.editwarehouseMenu.Size = new System.Drawing.Size(254, 26);
             this.editwarehouseMenu.Text = "Редактировать склад";
             this.editwarehouseMenu.Click += new System.EventHandler(this.editwarehouseMenu_Click);
             // 
             // deletewarehouseMenu
             // 
             this.deletewarehouseMenu.Name = "deletewarehouseMenu";
-            this.deletewarehouseMenu.Size = new System.Drawing.Size(236, 26);
+            this.deletewarehouseMenu.Size = new System.Drawing.Size(254, 26);
             this.deletewarehouseMenu.Text = "Удалить";
             // 
             // reportwarehouseMenu
             // 
             this.reportwarehouseMenu.Name = "reportwarehouseMenu";
-            this.reportwarehouseMenu.Size = new System.Drawing.Size(236, 26);
+            this.reportwarehouseMenu.Size = new System.Drawing.Size(254, 26);
             this.reportwarehouseMenu.Text = "Отчет";
             // 
             // menuStrip1
@@ -126,10 +130,10 @@ namespace Sklad
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enterMenuItem,
             warehouseMenuItem,
-            this.departmentMenuItem,
-            this.DetailMenuItem,
             this.ShtrihMenuItem,
             this.helpMenuItem,
+            this.departmentMenuItem,
+            this.DetailMenuItem,
             this.UsersMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -166,57 +170,6 @@ namespace Sklad
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(252, 26);
             this.toolStripMenuItem2.Text = "Выход";
-            // 
-            // departmentMenuItem
-            // 
-            this.departmentMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewDepartmentMenu,
-            this.EditDepatmentMenu});
-            this.departmentMenuItem.Name = "departmentMenuItem";
-            this.departmentMenuItem.Size = new System.Drawing.Size(113, 24);
-            this.departmentMenuItem.Text = "&Контрагенты";
-            // 
-            // NewDepartmentMenu
-            // 
-            this.NewDepartmentMenu.Name = "NewDepartmentMenu";
-            this.NewDepartmentMenu.Size = new System.Drawing.Size(283, 26);
-            this.NewDepartmentMenu.Text = "Создать контрагента";
-            this.NewDepartmentMenu.Click += new System.EventHandler(this.NewDepartmentMenu_Click);
-            // 
-            // EditDepatmentMenu
-            // 
-            this.EditDepatmentMenu.Name = "EditDepatmentMenu";
-            this.EditDepatmentMenu.Size = new System.Drawing.Size(283, 26);
-            this.EditDepatmentMenu.Text = "Редактировать контрагента";
-            // 
-            // DetailMenuItem
-            // 
-            this.DetailMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adddetailMenu,
-            this.editdetailMenu,
-            this.deletedetailMenu});
-            this.DetailMenuItem.Name = "DetailMenuItem";
-            this.DetailMenuItem.Size = new System.Drawing.Size(71, 24);
-            this.DetailMenuItem.Text = "Деталь";
-            // 
-            // adddetailMenu
-            // 
-            this.adddetailMenu.Name = "adddetailMenu";
-            this.adddetailMenu.Size = new System.Drawing.Size(244, 26);
-            this.adddetailMenu.Text = "Добавить деталь";
-            this.adddetailMenu.Click += new System.EventHandler(this.adddetailMenu_Click);
-            // 
-            // editdetailMenu
-            // 
-            this.editdetailMenu.Name = "editdetailMenu";
-            this.editdetailMenu.Size = new System.Drawing.Size(244, 26);
-            this.editdetailMenu.Text = "Редактировать деталь";
-            // 
-            // deletedetailMenu
-            // 
-            this.deletedetailMenu.Name = "deletedetailMenu";
-            this.deletedetailMenu.Size = new System.Drawing.Size(244, 26);
-            this.deletedetailMenu.Text = "Удалить деталь";
             // 
             // ShtrihMenuItem
             // 
@@ -286,6 +239,57 @@ namespace Sklad
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.aboutToolStripMenuItem.Text = "&О программе...";
+            // 
+            // departmentMenuItem
+            // 
+            this.departmentMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewDepartmentMenu,
+            this.EditDepatmentMenu});
+            this.departmentMenuItem.Name = "departmentMenuItem";
+            this.departmentMenuItem.Size = new System.Drawing.Size(113, 24);
+            this.departmentMenuItem.Text = "&Контрагенты";
+            // 
+            // NewDepartmentMenu
+            // 
+            this.NewDepartmentMenu.Name = "NewDepartmentMenu";
+            this.NewDepartmentMenu.Size = new System.Drawing.Size(283, 26);
+            this.NewDepartmentMenu.Text = "Создать контрагента";
+            this.NewDepartmentMenu.Click += new System.EventHandler(this.NewDepartmentMenu_Click);
+            // 
+            // EditDepatmentMenu
+            // 
+            this.EditDepatmentMenu.Name = "EditDepatmentMenu";
+            this.EditDepatmentMenu.Size = new System.Drawing.Size(283, 26);
+            this.EditDepatmentMenu.Text = "Редактировать контрагента";
+            // 
+            // DetailMenuItem
+            // 
+            this.DetailMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adddetailMenu,
+            this.editdetailMenu,
+            this.deletedetailMenu});
+            this.DetailMenuItem.Name = "DetailMenuItem";
+            this.DetailMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.DetailMenuItem.Text = "Деталь";
+            // 
+            // adddetailMenu
+            // 
+            this.adddetailMenu.Name = "adddetailMenu";
+            this.adddetailMenu.Size = new System.Drawing.Size(244, 26);
+            this.adddetailMenu.Text = "Добавить деталь";
+            this.adddetailMenu.Click += new System.EventHandler(this.adddetailMenu_Click);
+            // 
+            // editdetailMenu
+            // 
+            this.editdetailMenu.Name = "editdetailMenu";
+            this.editdetailMenu.Size = new System.Drawing.Size(244, 26);
+            this.editdetailMenu.Text = "Редактировать деталь";
+            // 
+            // deletedetailMenu
+            // 
+            this.deletedetailMenu.Name = "deletedetailMenu";
+            this.deletedetailMenu.Size = new System.Drawing.Size(244, 26);
+            this.deletedetailMenu.Text = "Удалить деталь";
             // 
             // UsersMenuItem
             // 
@@ -366,6 +370,19 @@ namespace Sklad
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.selectAllToolStripMenuItem.Text = "Select &All";
             // 
+            // newshelfMenu
+            // 
+            this.newshelfMenu.Name = "newshelfMenu";
+            this.newshelfMenu.Size = new System.Drawing.Size(254, 26);
+            this.newshelfMenu.Text = "Создать стеллаж";
+            this.newshelfMenu.Click += new System.EventHandler(this.newshelfMenu_Click);
+            // 
+            // editshelfmenu
+            // 
+            this.editshelfmenu.Name = "editshelfmenu";
+            this.editshelfmenu.Size = new System.Drawing.Size(254, 26);
+            this.editshelfmenu.Text = "Редактировать стеллаж";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -428,6 +445,8 @@ namespace Sklad
         private System.Windows.Forms.ToolStripMenuItem ReadShtrih;
         private System.Windows.Forms.ToolStripMenuItem PrintShtrih;
         private System.Windows.Forms.ToolStripMenuItem EditDepatmentMenu;
+        private System.Windows.Forms.ToolStripMenuItem newshelfMenu;
+        private System.Windows.Forms.ToolStripMenuItem editshelfmenu;
     }
 }
 

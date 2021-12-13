@@ -38,5 +38,10 @@ namespace Sklad
             }
             else { MessageBox.Show("Не все поля заполнены"); }
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

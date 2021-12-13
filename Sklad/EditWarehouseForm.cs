@@ -53,7 +53,7 @@ namespace Sklad
                 string txt = "SELECT `id`, `name`,`address`,`phone`,`size` FROM `warehouse` WHERE `name` = " + "'" + comboBox1.Text + "' " + "ORDER BY name";
                 List<string> warehouses = SQLClass.Select(txt);
                 int id = Convert.ToInt32(warehouses[0].ToString());
-                textBox1.Enabled = true;
+                textBox1.Enabled = true; 
                 textBox2.Enabled = true;
                 textBox3.Enabled = true;
                 textBox4.Enabled = true;

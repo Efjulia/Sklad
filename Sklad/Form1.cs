@@ -95,5 +95,11 @@ namespace Sklad
             NewDetailForm NewDetail = new NewDetailForm();
             NewDetail.ShowDialog();
         }
+
+        private void newshelfMenu_Click(object sender, EventArgs e)
+        {
+            NewShelf NSF = new NewShelf();
+            NSF.Show();
+        }
     }
 }
