@@ -77,7 +77,7 @@ namespace Sklad
             this.label2.Size = new System.Drawing.Size(62, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Пароль";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+           // this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -87,7 +87,7 @@ namespace Sklad
             this.label3.Size = new System.Drawing.Size(142, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Роль пользователя";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+           // this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox1
             // 

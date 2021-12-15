@@ -88,7 +88,7 @@ namespace Sklad
             this.label4.Size = new System.Drawing.Size(139, 20);
             this.label4.TabIndex = 23;
             this.label4.Text = "Имя руководителя";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+          //  this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -137,7 +137,7 @@ namespace Sklad
             this.label5.Size = new System.Drawing.Size(124, 20);
             this.label5.TabIndex = 29;
             this.label5.Text = "Тип контрагента";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+        //    this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // NewDepartment
             // 

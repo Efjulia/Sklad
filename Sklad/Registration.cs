@@ -51,19 +51,10 @@ namespace Sklad
             } 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Registration_Load(object sender, EventArgs e)
         {
             button1.Enabled = false;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

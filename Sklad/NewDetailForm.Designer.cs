@@ -82,7 +82,6 @@ namespace Sklad
             this.label4.Size = new System.Drawing.Size(33, 20);
             this.label4.TabIndex = 23;
             this.label4.Text = "Ряд";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -152,7 +151,6 @@ namespace Sklad
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Расположение";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // comboBox4
             // 
