@@ -77,9 +77,9 @@ namespace Sklad
                 }
                 else
                 {
-                    comboBox2.Items.Clear();
+                    comboBox4.Items.Clear();
                     location_id = Convert.ToInt32(shelfs[0].ToString());
-                    comboBox2.Items.AddRange(shelfs.ToArray());
+                    comboBox4.Items.AddRange(shelfs.ToArray());
                 }*/
             }
         }
@@ -110,6 +110,11 @@ namespace Sklad
                 location_id = Convert.ToInt32(shelfs[0].ToString());
                 comboBox2.Items.AddRange(shelfs.ToArray());
             }
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

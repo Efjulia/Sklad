@@ -12,6 +12,9 @@ namespace Sklad
         public static MySqlConnection conn;
         public static List<string> Select(string Text)
         {
+
+            
+
             List<string> results = new List<string>();
 
             MySqlCommand command = new MySqlCommand(Text, conn);

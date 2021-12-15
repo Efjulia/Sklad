@@ -25,8 +25,6 @@ namespace Sklad
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            
-
-
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             MySqlConnectionStringBuilder db;
             db = new MySqlConnectionStringBuilder();
@@ -35,17 +33,21 @@ namespace Sklad
             db.UserID = "root"; // Имя пользователя БД
                                 // db.Password = "ca8484adc89a"; // Пароль пользователя БД
             db.CharacterSet = "utf8"; // Кодировка Базы Данных
-           // try
-        //    {
-                SQLClass.conn = new MySqlConnection(db.ConnectionString);
-                SQLClass.conn.Open();
-            Application.Run(new Form1());
+            SQLClass.conn = new MySqlConnection(db.ConnectionString);
+            try
+            {
+                if (SQLClass.conn.State == ConnectionState.Closed)
+                {
+                    SQLClass.conn.Open();
+                    Application.Run(new Form1());
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Проблемы с подключением к БД \n\r" + ex.ToString());
+            }
             SQLClass.conn.Close();
-        //    }
-       //     catch
-        //    {
-        //        MessageBox.Show("Ошибка в подключении БД");
-        //    }
              
         }
     }
