@@ -179,6 +179,7 @@ namespace Sklad
             this.comboBox3.TabIndex = 33;
             this.comboBox3.Text = "Выберите склад";
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            //this.comboBox3.Click += new System.EventHandler(this.comboBox3_Click);
             // 
             // comboBox2
             // 

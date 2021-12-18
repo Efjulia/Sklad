@@ -50,8 +50,11 @@ namespace Sklad
             
         }
 
+        //private void comboBox_
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBox4.Items.Clear(); comboBox4.ResetText(); comboBox4.Enabled = false;
+            comboBox1.ResetText(); comboBox1.Items.Clear(); comboBox1.Enabled = false;
             if (comboBox3.SelectedIndex == -1)
                 MessageBox.Show("Выберите склад");
             else
@@ -74,7 +77,8 @@ namespace Sklad
                 if (numbers.Count == 0)
                 {
                     comboBox4.Items.Clear();
-                    comboBox4.Items.Add("Задайте стеллажи для склада");
+                    comboBox4.Text = "Отсутствуют стеллажи для склада";
+                    comboBox4.Enabled = false;
                 }
                 else
                 {
@@ -89,6 +93,9 @@ namespace Sklad
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBox2.Items.Clear();    comboBox2.ResetText(); 
+            comboBox4.Items.Clear();    comboBox4.ResetText(); comboBox4.Enabled = false;
+            comboBox1.ResetText();      comboBox1.Items.Clear(); comboBox1.Enabled = false;
             comboBox2.Enabled = true;
             string txt = "SELECT `id`, `name`,`address`,`phone`,`size` FROM `warehouse` WHERE `name` = " + "'" + comboBox3.Text + "' " + "ORDER BY name";
             List<string> warehouses = SQLClass.Select(txt);
@@ -100,7 +107,8 @@ namespace Sklad
             if (shelfs.Count == 0)
             {
                 comboBox2.Items.Clear();
-                comboBox2.Items.Add("Задайте ряды для склада ");
+                comboBox2.Text = "Отсутствуют ряды для склада";
+                comboBox2.Enabled = false;
             }
             else
             {
@@ -113,7 +121,8 @@ namespace Sklad
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox1.Enabled = true;
+
+            comboBox1.ResetText(); comboBox1.Items.Clear();     comboBox1.Enabled = true;
             if (comboBox3.SelectedIndex == -1)
                 MessageBox.Show("Выберите склад");
             else
@@ -137,7 +146,8 @@ namespace Sklad
                 if (cell_ids.Count == 0)
                 {
                     comboBox1.Items.Clear();
-                    comboBox1.Items.Add("Задайте ячейки для стеллажа");
+                    comboBox1.Text = "Отсутствуют ячейки для стеллажа";
+                    comboBox1.Enabled = false;
                 }
                 else
                 {
