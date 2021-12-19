@@ -101,5 +101,11 @@ namespace Sklad
             NewShelf NSF = new NewShelf();
             NSF.Show();
         }
+
+        private void Edituser_Click(object sender, EventArgs e)
+        {
+            EditUserForm EUForm = new EditUserForm();
+            EUForm.ShowDialog();
+        }
     }
 }

@@ -45,9 +45,7 @@ namespace Sklad
             }
             catch (Exception ex)
             {
-                // MessageBox.Show("Проблемы с подключением к БД \n\r");
-                const string message = "Проблемы с подключением к БД \n\r" +
-                    "Показать ошибку?";
+                const string message = "Проблемы с подключением к БД \n\r" + "Показать ошибку?";
                 const string caption = "Проблемы с подключением";
                 var result = MessageBox.Show(message, caption,
                                              MessageBoxButtons.YesNo,
@@ -57,7 +55,6 @@ namespace Sklad
                     MessageBox.Show(ex.ToString()); ;
 
                 }
-                
             }
             SQLClass.conn.Close();
              

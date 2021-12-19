@@ -36,8 +36,12 @@ namespace Sklad
             this.editwarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deletewarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.reportwarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.newshelfMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.editshelfmenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.newcellmenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.editcellmenu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.enterMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,10 +75,6 @@ namespace Sklad
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.newcellmenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.editcellmenu = new System.Windows.Forms.ToolStripMenuItem();
             warehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -131,6 +131,11 @@ namespace Sklad
             this.reportwarehouseMenu.Size = new System.Drawing.Size(254, 26);
             this.reportwarehouseMenu.Text = "Отчет";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(251, 6);
+            // 
             // newshelfMenu
             // 
             this.newshelfMenu.Name = "newshelfMenu";
@@ -143,6 +148,23 @@ namespace Sklad
             this.editshelfmenu.Name = "editshelfmenu";
             this.editshelfmenu.Size = new System.Drawing.Size(254, 26);
             this.editshelfmenu.Text = "Редактировать стеллаж";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(251, 6);
+            // 
+            // newcellmenu
+            // 
+            this.newcellmenu.Name = "newcellmenu";
+            this.newcellmenu.Size = new System.Drawing.Size(254, 26);
+            this.newcellmenu.Text = "Создать ячейку";
+            // 
+            // editcellmenu
+            // 
+            this.editcellmenu.Name = "editcellmenu";
+            this.editcellmenu.Size = new System.Drawing.Size(254, 26);
+            this.editcellmenu.Text = "Редактировать ячейку";
             // 
             // menuStrip1
             // 
@@ -333,6 +355,7 @@ namespace Sklad
             this.Edituser.Name = "Edituser";
             this.Edituser.Size = new System.Drawing.Size(277, 26);
             this.Edituser.Text = "Редактировать сотрудника";
+            this.Edituser.Click += new System.EventHandler(this.Edituser_Click);
             // 
             // undoToolStripMenuItem
             // 
@@ -390,28 +413,6 @@ namespace Sklad
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.selectAllToolStripMenuItem.Text = "Select &All";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(251, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(251, 6);
-            // 
-            // newcellmenu
-            // 
-            this.newcellmenu.Name = "newcellmenu";
-            this.newcellmenu.Size = new System.Drawing.Size(254, 26);
-            this.newcellmenu.Text = "Создать ячейку";
-            // 
-            // editcellmenu
-            // 
-            this.editcellmenu.Name = "editcellmenu";
-            this.editcellmenu.Size = new System.Drawing.Size(254, 26);
-            this.editcellmenu.Text = "Редактировать ячейку";
             // 
             // Form1
             // 
