@@ -20,7 +20,7 @@ namespace Sklad
         {
 
         user_name = textBox1.Text;
-         string user_password = textBox2.Text;
+         string user_password = textBox2.Text.Trim();
 
         string Text = "SELECT `login`,`password` FROM `users`";
         System.Collections.Generic.List<string> users = SQLClass.Select(Text);
