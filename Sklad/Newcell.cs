@@ -14,5 +14,10 @@ namespace Sklad
         {
             InitializeComponent();
         }
+
+        private void Newcell_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = comboBox1;
+        }
     }
 }

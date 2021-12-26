@@ -229,6 +229,7 @@ namespace Sklad
             this.GenShtrih.Name = "GenShtrih";
             this.GenShtrih.Size = new System.Drawing.Size(190, 26);
             this.GenShtrih.Text = "Генерировать";
+            this.GenShtrih.Click += new System.EventHandler(this.GenShtrih_Click);
             // 
             // ReadShtrih
             // 

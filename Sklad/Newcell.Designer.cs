@@ -48,6 +48,7 @@ namespace Sklad
             this.Controls.Add(this.comboBox1);
             this.Name = "Newcell";
             this.Text = "Ячейка";
+            this.Load += new System.EventHandler(this.Newcell_Load);
             this.ResumeLayout(false);
 
         }

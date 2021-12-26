@@ -43,7 +43,7 @@ namespace Sklad
                     }
                     if ((checkBox1.Checked == true && textBox1.Text != "") || (checkBox2.Checked == true && textBox2.Text != "") || (checkBox3.Checked == true && comboBox1.SelectedIndex != -1))
                     {
-                        //string txt = "SELECT `login` FROM `users`  ORDER BY login";
+                       
                         string tx2t = "SELECT `id` FROM `users` WHERE `login` = " + "'" + comboBox2.Text + "'";
                         List<string> users_data = SQLClass.Select(tx2t);
                         string id = users_data[0].ToString();
@@ -74,17 +74,18 @@ namespace Sklad
 
         private void EditUserForm_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = comboBox2;
             button1.Enabled = false;
             comboBox1.Visible = false; textBox1.Visible = false; textBox2.Visible = false;
-            label2.Visible = false; //label3.Visible = false; label4.Visible = false;
+            label2.Visible = false; 
             string txt = "SELECT `login` FROM `users`  ORDER BY login";
             List<string> users = SQLClass.Select(txt);
-            string login;// = users[0].ToString();
+            string login;
             if (users.Count == 0)
             {
                 comboBox2.Items.Clear();
                 comboBox2.Text = "Отсутствуют пользователи в системе";
-                //comboBox2.Enabled = false;
+                
             }
             else
             {
@@ -97,7 +98,7 @@ namespace Sklad
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //comboBox1.Items.Clear(); comboBox1.ResetText(); //comboBox1.Enabled = false;
+           
             if (comboBox2.SelectedIndex == -1 || comboBox2.Text=="")
             {
                 button1.Enabled = false;

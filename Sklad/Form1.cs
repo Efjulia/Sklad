@@ -107,5 +107,11 @@ namespace Sklad
             EditUserForm EUForm = new EditUserForm();
             EUForm.ShowDialog();
         }
+
+        private void GenShtrih_Click(object sender, EventArgs e)
+        {
+            genbarcode GBrC = new genbarcode();
+            GBrC.ShowDialog();
+        }
     }
 }

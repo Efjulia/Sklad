@@ -44,6 +44,7 @@ namespace Sklad
 
         private void Autentification_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = textBox1;
             this.ControlBox = false;
            // this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 

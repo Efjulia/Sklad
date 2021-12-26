@@ -22,6 +22,7 @@ namespace Sklad
 
         private void EditWarehouseForm_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = comboBox1;
             string txt = "SELECT `name` FROM warehouse ORDER BY name";
             List<string> warehouses = SQLClass.Select(txt);
             comboBox1.Items.AddRange(warehouses.ToArray());

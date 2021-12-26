@@ -42,7 +42,7 @@ namespace Sklad
 
         private void NewDetailForm_Load_1(object sender, EventArgs e)
         {
-
+            this.ActiveControl = textBox1;
             string txt = "SELECT `name` FROM warehouse ORDER BY name";
             List<string> warehouses = SQLClass.Select(txt);
             comboBox3.Items.AddRange(warehouses.ToArray());

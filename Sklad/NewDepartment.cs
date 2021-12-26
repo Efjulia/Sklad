@@ -65,6 +65,7 @@ namespace Sklad
 
         private void NewDepartment_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = comboBox1;
             button1.Enabled = false;
         }
 
