@@ -57,7 +57,7 @@ namespace Sklad
 
                 SQLClass.Insert("INSERT INTO `department`( `name`,`type`, `address`,  `phone`, `fio`) VALUES(" +
                       "'" + textBox1.Text + "', '" + type_department + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox4.Text + "')");
-                MessageBox.Show("ok");
+                MessageBox.Show("Контрагент создан");
 
                 Close();
             } 

@@ -27,7 +27,7 @@ namespace Sklad
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && comboBox1.SelectedIndex!= -1 && comboBox2.SelectedIndex != -1 && comboBox4.SelectedIndex != -1 && comboBox3.SelectedIndex != -1)
+            if (textBox1.Text != "" && textBox2.Text != "" && comboBox5.SelectedIndex != -1 && comboBox1.SelectedIndex!= -1 && comboBox2.SelectedIndex != -1 && comboBox4.SelectedIndex != -1 && comboBox3.SelectedIndex != -1)
             {
 
 
@@ -49,7 +49,12 @@ namespace Sklad
             comboBox2.Enabled = false;
             comboBox4.Enabled = false;
             comboBox1.Enabled = false;
-            
+
+            string txtmat = "SELECT `material` FROM material ORDER BY material";
+            List<string> materials = SQLClass.Select(txtmat);
+            comboBox5.Items.AddRange(materials.ToArray());
+
+
         }
 
         //private void comboBox_
@@ -159,6 +164,24 @@ namespace Sklad
                 }
 
             }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NewMaterialForm NewMF = new NewMaterialForm();
+            NewMF.ShowDialog();
+
+            string txtmat = "SELECT `material` FROM material ORDER BY material";
+            List<string> materials = SQLClass.Select(txtmat); 
+            comboBox5.Items.Clear();
+
+             comboBox5.Items.AddRange(materials.ToArray());
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
 
         }
     }

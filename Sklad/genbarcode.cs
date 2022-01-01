@@ -24,7 +24,7 @@ namespace Sklad
                 MessageBox.Show("Ошибка ввода текста", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
             }
-            {button1.Enabled = true;
+            else{button1.Enabled = true;
                 Barcode barcode = new Barcode();
                 Color foreColor = Color.Black;
                 Color BackColor = Color.Transparent;

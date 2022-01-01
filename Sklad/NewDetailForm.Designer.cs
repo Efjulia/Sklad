@@ -36,7 +36,6 @@ namespace Sklad
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -46,6 +45,8 @@ namespace Sklad
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -110,13 +111,6 @@ namespace Sklad
             this.label1.TabIndex = 20;
             this.label1.Text = "Количество";
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(12, 301);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(300, 27);
-            this.textBox3.TabIndex = 29;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -179,7 +173,6 @@ namespace Sklad
             this.comboBox3.TabIndex = 33;
             this.comboBox3.Text = "Выберите склад";
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
-            //this.comboBox3.Click += new System.EventHandler(this.comboBox3_Click);
             // 
             // comboBox2
             // 
@@ -200,7 +193,8 @@ namespace Sklad
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.comboBox5);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.textBox1);
@@ -208,10 +202,30 @@ namespace Sklad
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(10, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(340, 374);
+            this.groupBox2.Size = new System.Drawing.Size(340, 389);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Параметры детали";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(12, 301);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(300, 28);
+            this.comboBox5.TabIndex = 30;
+            this.comboBox5.Text = "Выберите материал";
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(104, 345);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(208, 29);
+            this.button2.TabIndex = 33;
+            this.button2.Text = "Добавить материал";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // NewDetailForm
             // 
@@ -241,7 +255,6 @@ namespace Sklad
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -251,5 +264,7 @@ namespace Sklad
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Button button2;
     }
 }

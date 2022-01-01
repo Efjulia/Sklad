@@ -113,5 +113,11 @@ namespace Sklad
             genbarcode GBrC = new genbarcode();
             GBrC.ShowDialog();
         }
+
+        private void NewMaterialMenu_Click(object sender, EventArgs e)
+        {
+            NewMaterialForm NewMF = new NewMaterialForm();
+            NewMF.ShowDialog();
+        }
     }
 }
