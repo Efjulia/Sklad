@@ -125,5 +125,11 @@ namespace Sklad
             Newcell NewCellForm = new Newcell();
             NewCellForm.ShowDialog();
         }
+
+        private void ShowdetailMenu_Click(object sender, EventArgs e)
+        {
+            ShowDetail SDForm = new ShowDetail();
+            SDForm.ShowDialog();
+        }
     }
 }

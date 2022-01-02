@@ -63,11 +63,10 @@ namespace Sklad
             this.DetailMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adddetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.editdetailMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.deletedetailMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowdetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.NewMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.EditMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.UsersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewuserMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.Edituser = new System.Windows.Forms.ToolStripMenuItem();
@@ -316,11 +315,10 @@ namespace Sklad
             this.DetailMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adddetailMenu,
             this.editdetailMenu,
-            this.deletedetailMenu,
+            this.ShowdetailMenu,
             this.toolStripSeparator6,
             this.NewMaterialMenu,
-            this.EditMaterialMenu,
-            this.DeleteMaterialMenu});
+            this.EditMaterialMenu});
             this.DetailMenuItem.Name = "DetailMenuItem";
             this.DetailMenuItem.Size = new System.Drawing.Size(71, 24);
             this.DetailMenuItem.Text = "&Деталь";
@@ -338,11 +336,12 @@ namespace Sklad
             this.editdetailMenu.Size = new System.Drawing.Size(265, 26);
             this.editdetailMenu.Text = "Редактировать деталь";
             // 
-            // deletedetailMenu
+            // ShowdetailMenu
             // 
-            this.deletedetailMenu.Name = "deletedetailMenu";
-            this.deletedetailMenu.Size = new System.Drawing.Size(265, 26);
-            this.deletedetailMenu.Text = "Удалить деталь";
+            this.ShowdetailMenu.Name = "ShowdetailMenu";
+            this.ShowdetailMenu.Size = new System.Drawing.Size(265, 26);
+            this.ShowdetailMenu.Text = "Обзор деталей";
+            this.ShowdetailMenu.Click += new System.EventHandler(this.ShowdetailMenu_Click);
             // 
             // toolStripSeparator6
             // 
@@ -361,12 +360,6 @@ namespace Sklad
             this.EditMaterialMenu.Name = "EditMaterialMenu";
             this.EditMaterialMenu.Size = new System.Drawing.Size(265, 26);
             this.EditMaterialMenu.Text = "Редактировать материал";
-            // 
-            // DeleteMaterialMenu
-            // 
-            this.DeleteMaterialMenu.Name = "DeleteMaterialMenu";
-            this.DeleteMaterialMenu.Size = new System.Drawing.Size(265, 26);
-            this.DeleteMaterialMenu.Text = "Удалить материал";
             // 
             // UsersMenuItem
             // 
@@ -500,7 +493,7 @@ namespace Sklad
         private System.Windows.Forms.ToolStripMenuItem DetailMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adddetailMenu;
         private System.Windows.Forms.ToolStripMenuItem editdetailMenu;
-        private System.Windows.Forms.ToolStripMenuItem deletedetailMenu;
+        private System.Windows.Forms.ToolStripMenuItem ShowdetailMenu;
         private System.Windows.Forms.ToolStripMenuItem showwarehouseMenu;
         private System.Windows.Forms.ToolStripMenuItem UsersMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NewuserMenu;
@@ -519,7 +512,6 @@ namespace Sklad
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem NewMaterialMenu;
         private System.Windows.Forms.ToolStripMenuItem EditMaterialMenu;
-        private System.Windows.Forms.ToolStripMenuItem DeleteMaterialMenu;
     }
 }
 
