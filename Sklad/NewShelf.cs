@@ -40,17 +40,20 @@ namespace Sklad
                 int location = Convert.ToInt32(textBox6.Text);
                 int size = Convert.ToInt32(textBox8.Text);
                 string registered = SQLClass.Select(
-                "SELECT COUNT(*) FROM `shelf` WHERE `number`= '" + number + "'AND `location` = '" + location + "'")[0];
+                "SELECT COUNT(*) FROM `shelf` WHERE `id_warehouse` = '" + id + "'AND `number`= '" + number + "'AND `location` = '" + location + "'")[0];
 
                 if (registered != "0")
                 {
                     MessageBox.Show("Такой стеллаж уже существует!");
+                    textBox6.Text = "";
+                    textBox7.Text = "";
+                    textBox8.Text = "";
                     return;
                 }
                 else
                 {
                     SQLClass.Insert("INSERT INTO `shelf`(`id_warehouse`, `number`, `location`, `size`) VALUES ('" + id + "', '" + number + "', '" + location + "', '" + size + "')");
-                    MessageBox.Show("ok");
+                    MessageBox.Show("Стеллаж создан");
 
                     Close();
                 }
@@ -69,7 +72,7 @@ namespace Sklad
                 string txt = "SELECT `id`, `name`,`address`,`phone`,`size` FROM `warehouse` WHERE `name` = " + "'" + comboBox1.Text + "' " + "ORDER BY name";
                 List<string> warehouses = SQLClass.Select(txt);
                 int id = Convert.ToInt32(warehouses[0].ToString());
-                MessageBox.Show(Convert.ToString(id));
+             //   MessageBox.Show(Convert.ToString(id));
                 textBox6.Enabled = true;
                 textBox7.Enabled = true;
                 textBox8.Enabled = true;

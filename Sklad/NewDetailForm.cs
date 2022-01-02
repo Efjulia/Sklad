@@ -215,7 +215,7 @@ namespace Sklad
             string txtid = "SELECT `id` FROM `material` WHERE `material` = " + "'" + comboBox5.Text + "' ";
             List<string> materialid = SQLClass.Select(txtid);
             id_material = Convert.ToInt32(materialid[0].ToString());
-            MessageBox.Show(Convert.ToString(id_material));
+           // MessageBox.Show(Convert.ToString(id_material));
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

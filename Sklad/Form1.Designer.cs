@@ -64,6 +64,10 @@ namespace Sklad
             this.adddetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.editdetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deletedetailMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.NewMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.UsersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewuserMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.Edituser = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,10 +79,6 @@ namespace Sklad
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.NewMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
             warehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -163,6 +163,7 @@ namespace Sklad
             this.newcellmenu.Name = "newcellmenu";
             this.newcellmenu.Size = new System.Drawing.Size(254, 26);
             this.newcellmenu.Text = "Создать ячейку";
+            this.newcellmenu.Click += new System.EventHandler(this.newcellmenu_Click);
             // 
             // editcellmenu
             // 
@@ -343,6 +344,30 @@ namespace Sklad
             this.deletedetailMenu.Size = new System.Drawing.Size(265, 26);
             this.deletedetailMenu.Text = "Удалить деталь";
             // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(262, 6);
+            // 
+            // NewMaterialMenu
+            // 
+            this.NewMaterialMenu.Name = "NewMaterialMenu";
+            this.NewMaterialMenu.Size = new System.Drawing.Size(265, 26);
+            this.NewMaterialMenu.Text = "Добавить материал";
+            this.NewMaterialMenu.Click += new System.EventHandler(this.NewMaterialMenu_Click);
+            // 
+            // EditMaterialMenu
+            // 
+            this.EditMaterialMenu.Name = "EditMaterialMenu";
+            this.EditMaterialMenu.Size = new System.Drawing.Size(265, 26);
+            this.EditMaterialMenu.Text = "Редактировать материал";
+            // 
+            // DeleteMaterialMenu
+            // 
+            this.DeleteMaterialMenu.Name = "DeleteMaterialMenu";
+            this.DeleteMaterialMenu.Size = new System.Drawing.Size(265, 26);
+            this.DeleteMaterialMenu.Text = "Удалить материал";
+            // 
             // UsersMenuItem
             // 
             this.UsersMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -422,30 +447,6 @@ namespace Sklad
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.selectAllToolStripMenuItem.Text = "Select &All";
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(262, 6);
-            // 
-            // NewMaterialMenu
-            // 
-            this.NewMaterialMenu.Name = "NewMaterialMenu";
-            this.NewMaterialMenu.Size = new System.Drawing.Size(265, 26);
-            this.NewMaterialMenu.Text = "Добавить материал";
-            this.NewMaterialMenu.Click += new System.EventHandler(this.NewMaterialMenu_Click);
-            // 
-            // EditMaterialMenu
-            // 
-            this.EditMaterialMenu.Name = "EditMaterialMenu";
-            this.EditMaterialMenu.Size = new System.Drawing.Size(265, 26);
-            this.EditMaterialMenu.Text = "Редактировать материал";
-            // 
-            // DeleteMaterialMenu
-            // 
-            this.DeleteMaterialMenu.Name = "DeleteMaterialMenu";
-            this.DeleteMaterialMenu.Size = new System.Drawing.Size(265, 26);
-            this.DeleteMaterialMenu.Text = "Удалить материал";
             // 
             // Form1
             // 

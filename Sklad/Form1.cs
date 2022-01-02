@@ -119,5 +119,11 @@ namespace Sklad
             NewMaterialForm NewMF = new NewMaterialForm();
             NewMF.ShowDialog();
         }
+
+        private void newcellmenu_Click(object sender, EventArgs e)
+        {
+            Newcell NewCellForm = new Newcell();
+            NewCellForm.ShowDialog();
+        }
     }
 }
