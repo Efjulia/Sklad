@@ -20,22 +20,51 @@ namespace Sklad
         static int number;
         static int shelf_id;
         static int cell_id;
+        static int id_material;
+        static int count;
+        static string measurement;
 
 
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if (textBox1.Text != "" && textBox2.Text != "" && comboBox5.SelectedIndex != -1 && comboBox1.SelectedIndex!= -1 && comboBox2.SelectedIndex != -1 && comboBox4.SelectedIndex != -1 && comboBox3.SelectedIndex != -1)
+            count = Convert.ToInt32(textBox2.Text);
+            if (textBox1.Text != "" && textBox2.Text != "" && comboBox5.SelectedIndex != -1 && comboBox1.SelectedIndex!= -1 && comboBox2.SelectedIndex != -1 && comboBox4.SelectedIndex != -1 && comboBox3.SelectedIndex != -1 && textBox2.Text != "")
             {
+                if (radioButton1.Checked)
+                    measurement = "шт";
+                if (radioButton2.Checked)
+                    measurement = "кг";
 
 
-                //SQLClass.Insert("INSERT INTO `warehouse`( `name`, `address`, `phone`, `size`) VALUES(" +
-                //      "'" + textBox1.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + Convert.ToInt32(textBox1.Text) + "')");
-                MessageBox.Show("ok");
+                string txt11 = "SELECT `id`, `name`,`address`,`phone`,`size` FROM `warehouse` WHERE `name` = " + "'" + comboBox3.Text + "' " + "ORDER BY name";
+                List<string> warehouses = SQLClass.Select(txt11);
+                id = Convert.ToInt32(warehouses[0].ToString()); //id скалада
 
-                Close();
+
+                string txt12 = "SELECT DISTINCT `location` FROM `shelf` WHERE `id_warehouse` = " + "'" + id + "' " + "ORDER BY location";
+                List<string> shelfs = SQLClass.Select(txt12);
+                location_id = Convert.ToInt32(shelfs[0].ToString()); //ряд стеллажа
+
+                string txt2 = "SELECT DISTINCT `number` FROM `shelf` WHERE `id_warehouse` = " + "'" + id + "' AND  `location` = " + "'" + comboBox2.Text + "' " + "ORDER BY number";
+                List<string> numbers = SQLClass.Select(txt2);
+                number = Convert.ToInt32(numbers[0].ToString());//номер стеллажа
+
+                string txt22 = "SELECT DISTINCT `id` FROM `shelf` WHERE `id_warehouse` = " + "'" + id + "' AND  `location` = " + "'" + comboBox2.Text + "' AND  `number` = " + "'" + comboBox4.Text + "' " + "ORDER BY number";
+                List<string> ids = SQLClass.Select(txt22);
+                shelf_id = Convert.ToInt32(ids[0].ToString()); //id стеллажа
+
+                //MessageBox.Show("id_material = " + Convert.ToString(id_material) + "number = " + comboBox4.Text + " measurement = " + measurement + "\n location_id = " + comboBox2.Text + " count = " + Convert.ToString(count) + "shelf_id" + Convert.ToString(shelf_id) + " \n cell_id=" + comboBox1.Text + " id_warehouse=" + Convert.ToString(id));
+
+
+
+                //  MessageBox.Show("ok");
+                SQLClass.Insert("INSERT INTO `detail`( `name`, `id_material`, `count`, `measurement`, `id_warehouse`, `id_shelf`, `id_cell`) VALUES (" +
+                      "'" + textBox1.Text + "', '" + id_material + "', '" + count + "', '" + measurement + "', '" + id + "',  '" + shelf_id + "','" + comboBox1.Text + "')");
+                MessageBox.Show("Деталь добавлена");
+
+               Close();
             }
             else { MessageBox.Show("Не все поля заполнены"); }
         }
@@ -43,6 +72,7 @@ namespace Sklad
         private void NewDetailForm_Load_1(object sender, EventArgs e)
         {
             this.ActiveControl = textBox1;
+            radioButton1.Checked = true;
             string txt = "SELECT `name` FROM warehouse ORDER BY name";
             List<string> warehouses = SQLClass.Select(txt);
             comboBox3.Items.AddRange(warehouses.ToArray());
@@ -146,8 +176,9 @@ namespace Sklad
 
                 string txt13 = "SELECT `id` FROM `shelf` WHERE `id_warehouse` = " + "'" + id + "' AND  `location` = " + "'" + comboBox2.Text + "' " + " AND  `number` = " + "'" + comboBox4.Text + "' " ;
                 List<string> shelfs_id = SQLClass.Select(txt13);
+                shelf_id = Convert.ToInt32(shelfs_id[0].ToString());
 
-                string txt14 = "SELECT `id` FROM `shelf` WHERE `id_warehouse` = " + "'" + id + "' AND  `location` = " + "'" + comboBox2.Text + "' " + " AND  `number` = " + "'" + comboBox4.Text + "' ";
+                string txt14 = "SELECT `id` FROM `cell` WHERE `id_shelf` = " + "'" + shelf_id + "' " + "ORDER BY id";
                 List<string> cell_ids = SQLClass.Select(txt14);
 
                 if (cell_ids.Count == 0)
@@ -175,14 +206,29 @@ namespace Sklad
             string txtmat = "SELECT `material` FROM material ORDER BY material";
             List<string> materials = SQLClass.Select(txtmat); 
             comboBox5.Items.Clear();
-
-             comboBox5.Items.AddRange(materials.ToArray());
+            comboBox5.Items.AddRange(materials.ToArray());
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
 
+            string txtid = "SELECT `id` FROM `material` WHERE `material` = " + "'" + comboBox5.Text + "' ";
+            List<string> materialid = SQLClass.Select(txtid);
+            id_material = Convert.ToInt32(materialid[0].ToString());
+            MessageBox.Show(Convert.ToString(id_material));
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= '0') && (e.KeyChar <= '9'))
+                return;
+            e.Handled = true;
+            count = Convert.ToInt32(textBox2.Text);
         }
     }
 }

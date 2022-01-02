@@ -45,8 +45,10 @@ namespace Sklad
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -65,8 +67,10 @@ namespace Sklad
             // 
             this.textBox2.Location = new System.Drawing.Point(12, 196);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 27);
+            this.textBox2.Size = new System.Drawing.Size(90, 27);
             this.textBox2.TabIndex = 25;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // textBox1
             // 
@@ -114,7 +118,7 @@ namespace Sklad
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 251);
+            this.label5.Location = new System.Drawing.Point(12, 261);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 20);
             this.label5.TabIndex = 28;
@@ -193,6 +197,8 @@ namespace Sklad
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.radioButton2);
+            this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.comboBox5);
             this.groupBox2.Controls.Add(this.label5);
@@ -202,30 +208,52 @@ namespace Sklad
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(10, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(340, 389);
+            this.groupBox2.Size = new System.Drawing.Size(340, 418);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Параметры детали";
             // 
-            // comboBox5
+            // radioButton2
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(12, 301);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(300, 28);
-            this.comboBox5.TabIndex = 30;
-            this.comboBox5.Text = "Выберите материал";
-            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(144, 224);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(43, 24);
+            this.radioButton2.TabIndex = 34;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "кг";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(144, 194);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(62, 24);
+            this.radioButton1.TabIndex = 33;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "штук";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(104, 345);
+            this.button2.Location = new System.Drawing.Point(104, 355);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(208, 29);
             this.button2.TabIndex = 33;
             this.button2.Text = "Добавить материал";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(12, 311);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(300, 28);
+            this.comboBox5.TabIndex = 30;
+            this.comboBox5.Text = "Выберите материал";
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // NewDetailForm
             // 
@@ -266,5 +294,7 @@ namespace Sklad
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
