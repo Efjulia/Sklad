@@ -40,6 +40,7 @@ namespace Sklad
                 {
                     SQLClass.conn.Open();
                     Application.Run(new Form1());
+                    //Application.Run(new ReportForm());
                 }
               
             }

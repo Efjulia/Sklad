@@ -72,7 +72,7 @@ namespace Sklad
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Hide();
+            /*this.Hide();
             Autentification AUform = new Autentification();
             AUform.ShowDialog();
             this.Show();
@@ -81,13 +81,12 @@ namespace Sklad
                 UsersMenuItem.Visible = false;
                 newwarehouseMenu.Visible = false;
                 editwarehouseMenu.Visible = false;
-                deletewarehouseMenu.Visible = false;
             }
             else { UsersMenuItem.Visible = true;
                 newwarehouseMenu.Visible = true;
                 editwarehouseMenu.Visible = true;
-                deletewarehouseMenu.Visible = true;
-            }
+                
+            }*/
           //  MessageBox.Show(Convert.ToString(Autentification.user_role));
         }
 
@@ -156,17 +155,16 @@ namespace Sklad
                 UsersMenuItem.Visible = false;
                 newwarehouseMenu.Visible = false;
                 editwarehouseMenu.Visible = false;
-                deletewarehouseMenu.Visible = false;
             }
             else
             {
                 UsersMenuItem.Visible = true;
                 newwarehouseMenu.Visible = true;
                 editwarehouseMenu.Visible = true;
-                deletewarehouseMenu.Visible = true;
             }
             //  MessageBox.Show(Convert.ToString(Autentification.user_role));
         }
+
 
         private void exitMenu_Click(object sender, EventArgs e)
         {
@@ -182,6 +180,18 @@ namespace Sklad
                 // e.Cancel = true;
             }
             else { Application.Exit(); }
+        }
+
+        private void reportwarehouseMenu_Click(object sender, EventArgs e)
+        {
+            ReportForm RepF = new ReportForm();
+            RepF.ShowDialog();
+        }
+
+        private void showDepartmentMenu_Click(object sender, EventArgs e)
+        {
+            ShowDepartmentForm SDForm = new ShowDepartmentForm();
+            SDForm.ShowDialog();
         }
     }
 }

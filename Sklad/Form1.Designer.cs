@@ -34,7 +34,6 @@ namespace Sklad
             this.showwarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newwarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.editwarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.deletewarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.reportwarehouseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.newshelfMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,6 +76,7 @@ namespace Sklad
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showDepartmentMenu = new System.Windows.Forms.ToolStripMenuItem();
             warehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +87,6 @@ namespace Sklad
             this.showwarehouseMenu,
             this.newwarehouseMenu,
             this.editwarehouseMenu,
-            this.deletewarehouseMenu,
             this.reportwarehouseMenu,
             this.toolStripSeparator1,
             this.newshelfMenu,
@@ -121,17 +120,12 @@ namespace Sklad
             this.editwarehouseMenu.Text = "Редактировать склад";
             this.editwarehouseMenu.Click += new System.EventHandler(this.editwarehouseMenu_Click);
             // 
-            // deletewarehouseMenu
-            // 
-            this.deletewarehouseMenu.Name = "deletewarehouseMenu";
-            this.deletewarehouseMenu.Size = new System.Drawing.Size(254, 26);
-            this.deletewarehouseMenu.Text = "Удалить";
-            // 
             // reportwarehouseMenu
             // 
             this.reportwarehouseMenu.Name = "reportwarehouseMenu";
             this.reportwarehouseMenu.Size = new System.Drawing.Size(254, 26);
             this.reportwarehouseMenu.Text = "Отчет";
+            this.reportwarehouseMenu.Click += new System.EventHandler(this.reportwarehouseMenu_Click);
             // 
             // toolStripSeparator1
             // 
@@ -286,7 +280,8 @@ namespace Sklad
             // 
             this.departmentMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NewDepartmentMenu,
-            this.EditDepatmentMenu});
+            this.EditDepatmentMenu,
+            this.showDepartmentMenu});
             this.departmentMenuItem.Name = "departmentMenuItem";
             this.departmentMenuItem.Size = new System.Drawing.Size(113, 24);
             this.departmentMenuItem.Text = "&Контрагенты";
@@ -435,6 +430,13 @@ namespace Sklad
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.selectAllToolStripMenuItem.Text = "Select &All";
             // 
+            // showDepartmentMenu
+            // 
+            this.showDepartmentMenu.Name = "showDepartmentMenu";
+            this.showDepartmentMenu.Size = new System.Drawing.Size(283, 26);
+            this.showDepartmentMenu.Text = "Обзор контрагентов";
+            this.showDepartmentMenu.Click += new System.EventHandler(this.showDepartmentMenu_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -479,7 +481,6 @@ namespace Sklad
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem newwarehouseMenu;
         private System.Windows.Forms.ToolStripMenuItem editwarehouseMenu;
-        private System.Windows.Forms.ToolStripMenuItem deletewarehouseMenu;
         private System.Windows.Forms.ToolStripMenuItem reportwarehouseMenu;
         private System.Windows.Forms.ToolStripMenuItem departmentMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
@@ -506,6 +507,7 @@ namespace Sklad
         private System.Windows.Forms.ToolStripMenuItem NewMaterialMenu;
         private System.Windows.Forms.ToolStripMenuItem EditMaterialMenu;
         private System.Windows.Forms.ToolStripMenuItem exitMenu;
+        private System.Windows.Forms.ToolStripMenuItem showDepartmentMenu;
     }
 }
 

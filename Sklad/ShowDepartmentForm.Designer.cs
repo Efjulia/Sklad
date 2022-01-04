@@ -1,7 +1,7 @@
 ﻿
 namespace Sklad
 {
-    partial class ShowDetail
+    partial class ShowDepartmentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,12 @@ namespace Sklad
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.WarehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WarehouseAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phonewarehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizewarehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,97 +46,90 @@ namespace Sklad
             this.WarehouseName,
             this.WarehouseAddress,
             this.Phonewarehouse,
-            this.sizewarehouse,
-            this.warehouse,
-            this.location,
-            this.number,
-            this.Cell});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.sizewarehouse});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 87);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1308, 425);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.Size = new System.Drawing.Size(953, 484);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(27, 12);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(113, 24);
+            this.radioButton1.TabIndex = 3;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Внутренние";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(180, 12);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(94, 24);
+            this.radioButton2.TabIndex = 4;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Внешние";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // WarehouseName
             // 
-            this.WarehouseName.HeaderText = "Деталь";
+            this.WarehouseName.HeaderText = "Название";
             this.WarehouseName.MinimumWidth = 20;
             this.WarehouseName.Name = "WarehouseName";
             this.WarehouseName.Width = 300;
             // 
             // WarehouseAddress
             // 
-            this.WarehouseAddress.HeaderText = "Материал";
+            this.WarehouseAddress.HeaderText = "Руководитель";
             this.WarehouseAddress.MinimumWidth = 20;
             this.WarehouseAddress.Name = "WarehouseAddress";
             this.WarehouseAddress.Width = 200;
             // 
             // Phonewarehouse
             // 
-            this.Phonewarehouse.HeaderText = "Количество";
+            this.Phonewarehouse.HeaderText = "Телефон";
             this.Phonewarehouse.MinimumWidth = 6;
             this.Phonewarehouse.Name = "Phonewarehouse";
-            this.Phonewarehouse.Width = 125;
+            this.Phonewarehouse.Width = 200;
             // 
             // sizewarehouse
             // 
-            this.sizewarehouse.HeaderText = "Ед. измерения";
+            this.sizewarehouse.HeaderText = "Адрес";
             this.sizewarehouse.MinimumWidth = 6;
             this.sizewarehouse.Name = "sizewarehouse";
-            this.sizewarehouse.Width = 125;
+            this.sizewarehouse.Width = 200;
             // 
-            // warehouse
-            // 
-            this.warehouse.HeaderText = "Склад";
-            this.warehouse.MinimumWidth = 6;
-            this.warehouse.Name = "warehouse";
-            this.warehouse.Width = 125;
-            // 
-            // location
-            // 
-            this.location.HeaderText = "Ряд";
-            this.location.MinimumWidth = 6;
-            this.location.Name = "location";
-            this.location.Width = 125;
-            // 
-            // number
-            // 
-            this.number.HeaderText = "Стеллаж";
-            this.number.MinimumWidth = 6;
-            this.number.Name = "number";
-            this.number.Width = 125;
-            // 
-            // Cell
-            // 
-            this.Cell.HeaderText = "Ячейка";
-            this.Cell.MinimumWidth = 6;
-            this.Cell.Name = "Cell";
-            this.Cell.Width = 125;
-            // 
-            // ShowDetail
+            // ShowDepartmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 450);
+            this.ClientSize = new System.Drawing.Size(976, 583);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "ShowDetail";
-            this.Text = "Обзор деталей";
+            this.Name = "ShowDepartmentForm";
+            this.Text = "Контрагенты";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.DataGridViewTextBoxColumn WarehouseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn WarehouseAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phonewarehouse;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizewarehouse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn warehouse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn location;
-        private System.Windows.Forms.DataGridViewTextBoxColumn number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cell;
     }
 }
