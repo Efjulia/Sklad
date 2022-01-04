@@ -58,6 +58,7 @@ namespace Sklad
             this.departmentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewDepartmentMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.EditDepatmentMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.showDepartmentMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.DetailMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adddetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.editdetailMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,7 +77,6 @@ namespace Sklad
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showDepartmentMenu = new System.Windows.Forms.ToolStripMenuItem();
             warehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -298,6 +298,14 @@ namespace Sklad
             this.EditDepatmentMenu.Name = "EditDepatmentMenu";
             this.EditDepatmentMenu.Size = new System.Drawing.Size(283, 26);
             this.EditDepatmentMenu.Text = "Редактировать контрагента";
+            this.EditDepatmentMenu.Click += new System.EventHandler(this.EditDepatmentMenu_Click);
+            // 
+            // showDepartmentMenu
+            // 
+            this.showDepartmentMenu.Name = "showDepartmentMenu";
+            this.showDepartmentMenu.Size = new System.Drawing.Size(283, 26);
+            this.showDepartmentMenu.Text = "Обзор контрагентов";
+            this.showDepartmentMenu.Click += new System.EventHandler(this.showDepartmentMenu_Click);
             // 
             // DetailMenuItem
             // 
@@ -429,13 +437,6 @@ namespace Sklad
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.selectAllToolStripMenuItem.Text = "Select &All";
-            // 
-            // showDepartmentMenu
-            // 
-            this.showDepartmentMenu.Name = "showDepartmentMenu";
-            this.showDepartmentMenu.Size = new System.Drawing.Size(283, 26);
-            this.showDepartmentMenu.Text = "Обзор контрагентов";
-            this.showDepartmentMenu.Click += new System.EventHandler(this.showDepartmentMenu_Click);
             // 
             // Form1
             // 

@@ -193,5 +193,12 @@ namespace Sklad
             ShowDepartmentForm SDForm = new ShowDepartmentForm();
             SDForm.ShowDialog();
         }
+
+        private void EditDepatmentMenu_Click(object sender, EventArgs e)
+        {
+            EditDepatmentForm EDForm = new EditDepatmentForm();
+            EDForm.ShowDialog();
+
+        }
     }
 }
