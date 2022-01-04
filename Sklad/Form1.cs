@@ -72,10 +72,23 @@ namespace Sklad
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //this.Hide();
-           // Autentification AUform = new Autentification();
-           // AUform.ShowDialog();
-           // this.Show();
+            this.Hide();
+            Autentification AUform = new Autentification();
+            AUform.ShowDialog();
+            this.Show();
+            if (Autentification.user_role == 2)
+            {
+                UsersMenuItem.Visible = false;
+                newwarehouseMenu.Visible = false;
+                editwarehouseMenu.Visible = false;
+                deletewarehouseMenu.Visible = false;
+            }
+            else { UsersMenuItem.Visible = true;
+                newwarehouseMenu.Visible = true;
+                editwarehouseMenu.Visible = true;
+                deletewarehouseMenu.Visible = true;
+            }
+          //  MessageBox.Show(Convert.ToString(Autentification.user_role));
         }
 
         private void NewuserMenu_Click(object sender, EventArgs e)
@@ -130,6 +143,45 @@ namespace Sklad
         {
             ShowDetail SDForm = new ShowDetail();
             SDForm.ShowDialog();
+        }
+
+        private void selectUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Autentification AUform = new Autentification();
+            AUform.ShowDialog();
+            this.Show();
+            if (Autentification.user_role == 2)
+            {
+                UsersMenuItem.Visible = false;
+                newwarehouseMenu.Visible = false;
+                editwarehouseMenu.Visible = false;
+                deletewarehouseMenu.Visible = false;
+            }
+            else
+            {
+                UsersMenuItem.Visible = true;
+                newwarehouseMenu.Visible = true;
+                editwarehouseMenu.Visible = true;
+                deletewarehouseMenu.Visible = true;
+            }
+            //  MessageBox.Show(Convert.ToString(Autentification.user_role));
+        }
+
+        private void exitMenu_Click(object sender, EventArgs e)
+        {
+            const string message = "Закрыть программу?";
+            const string caption = "Закрытие программы";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                ;
+                // cancel the closure of the form.
+                // e.Cancel = true;
+            }
+            else { Application.Exit(); }
         }
     }
 }

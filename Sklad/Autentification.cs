@@ -10,7 +10,8 @@ namespace Sklad
 {
     public partial class Autentification : Form
     {
-        public string user_name;
+        public static int user_role;
+        public static string user_name;
         public Autentification()
         {
             InitializeComponent();
@@ -36,7 +37,12 @@ namespace Sklad
             }
             // MainForm.Show();
             if (legal_user)
-                this.Close();
+            {
+                string Text_0 = "SELECT  `role` FROM `users` WHERE `login` = " + "'" + textBox1.Text + "'"; 
+                System.Collections.Generic.List<string> user_current = SQLClass.Select(Text_0);
+                user_role = Convert.ToInt32(user_current[0].ToString());
+                this.Close();}
+                
             else
                 MessageBox.Show("Неверный логин или пароль");
 

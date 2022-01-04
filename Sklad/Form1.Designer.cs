@@ -44,9 +44,8 @@ namespace Sklad
             this.editcellmenu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.enterMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ShtrihMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GenShtrih = new System.Windows.Forms.ToolStripMenuItem();
             this.ReadShtrih = new System.Windows.Forms.ToolStripMenuItem();
@@ -193,30 +192,25 @@ namespace Sklad
             // enterMenuItem
             // 
             this.enterMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem2});
+            this.selectUser,
+            this.exitMenu});
             this.enterMenuItem.Name = "enterMenuItem";
             this.enterMenuItem.Size = new System.Drawing.Size(170, 24);
             this.enterMenuItem.Text = "Администрирование";
             // 
-            // toolStripMenuItem4
+            // selectUser
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(252, 26);
-            this.toolStripMenuItem4.Text = "Вход";
+            this.selectUser.Name = "selectUser";
+            this.selectUser.Size = new System.Drawing.Size(252, 26);
+            this.selectUser.Text = "Сменить пользователя";
+            this.selectUser.Click += new System.EventHandler(this.selectUser_Click);
             // 
-            // toolStripMenuItem3
+            // exitMenu
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(252, 26);
-            this.toolStripMenuItem3.Text = "Сменить пользователя";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(252, 26);
-            this.toolStripMenuItem2.Text = "Выход";
+            this.exitMenu.Name = "exitMenu";
+            this.exitMenu.Size = new System.Drawing.Size(252, 26);
+            this.exitMenu.Text = "Выход";
+            this.exitMenu.Click += new System.EventHandler(this.exitMenu_Click);
             // 
             // ShtrihMenuItem
             // 
@@ -481,9 +475,8 @@ namespace Sklad
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enterMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem selectUser;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem newwarehouseMenu;
         private System.Windows.Forms.ToolStripMenuItem editwarehouseMenu;
         private System.Windows.Forms.ToolStripMenuItem deletewarehouseMenu;
@@ -512,6 +505,7 @@ namespace Sklad
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem NewMaterialMenu;
         private System.Windows.Forms.ToolStripMenuItem EditMaterialMenu;
+        private System.Windows.Forms.ToolStripMenuItem exitMenu;
     }
 }
 
