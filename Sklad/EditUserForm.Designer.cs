@@ -154,7 +154,7 @@ namespace Sklad
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Name = "EditUserForm";
-            this.Text = "EditUserForm";
+            this.Text = "Редактировать сотрудника";
             this.Load += new System.EventHandler(this.EditUserForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
