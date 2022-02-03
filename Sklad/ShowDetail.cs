@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace Sklad
 {
@@ -23,7 +31,6 @@ namespace Sklad
                 "ON  detail.id_warehouse = warehouse.id " +
                 "JOIN `shelf` " +
                 "ON detail.id_shelf = shelf.id";
-
 
             System.Collections.Generic.List<string> details = SQLClass.Select(Text);
 
@@ -46,10 +53,112 @@ namespace Sklad
      
         }
 
+       public void CreateTable(string dest)
+        {
+            PdfDocument pdfDoc = new PdfDocument(new PdfWriter(dest));
+            Document doc = new Document(pdfDoc);
+
+            int dgvrowcount = dataGridView1.Rows.Count;
+            //MessageBox.Show(Convert.ToString(dgvrowcount));
+
+            int dgvcolumncount = dataGridView1.Columns.Count;
+            // MessageBox.Show(Convert.ToString(dgvcolumncount));
+
+            
+            float[] pointColumnWidths = { 150F, 150F, 50F, 50F, 150F, 15F, 15F, 15F };
+            Table table = new Table(pointColumnWidths);
+
+            string Text = "SELECT detail.name, material.material , detail.count , detail.measurement , warehouse.name , shelf.number ," +
+                "shelf.location, detail.id_cell " +
+                "FROM `detail` " +
+                "JOIN `material` " +
+                "ON  detail.id_material = material.id " +
+                "JOIN `warehouse` " +
+                "ON  detail.id_warehouse = warehouse.id " +
+                "JOIN `shelf` " +
+                "ON detail.id_shelf = shelf.id";
+
+
+            System.Collections.Generic.List<string> details = SQLClass.Select(Text);
+            // Устанавливаем нужный шрифт
+           
+            // Создаём шрифт и используем далее
+            //Font font = new Font(family, 15);
+            String FONT_FILENAME = "C:/Users/pc/source/repos/Sklad/Sklad/font/TTF.ttf";
+            //PdfFont font = PdfFontFactory.createFont(FONT_FILENAME, PdfEncodings.IDENTITY_H);
+            PdfFont font = PdfFontFactory.CreateFont(FONT_FILENAME);
+
+            string today_date = Convert.ToString(DateTime.Now.ToLongDateString());
+            string today_time = Convert.ToString(DateTime.Now.ToShortTimeString());
+            doc.Add(new Paragraph("Пользователь:").SetFont(font));
+            doc.Add(new Paragraph("Перечень деталей на " + today_date + ", " + today_time).SetFont(font));
+            List<string[]> data = new List<string[]>();
+            for (int i = 0; i < details.Count - 7; i += 8)
+            {
+                Cell cell1 = new Cell(1, 1)
+                      .SetTextAlignment(TextAlignment.LEFT)
+                      .Add(new Paragraph(details[i].ToString()).SetFont(font)); 
+                table.AddCell(new Cell().Add(cell1));
+                Cell cell2 = new Cell(1, 1)
+                      .SetTextAlignment(TextAlignment.CENTER)
+                      .Add(new Paragraph(details[i+1].ToString()).SetFont(font));
+                table.AddCell(new Cell().Add(cell2));
+                Cell cell3 = new Cell(1, 1)
+                      .SetTextAlignment(TextAlignment.CENTER)
+                      .Add(new Paragraph(details[i + 2].ToString()).SetFont(font));
+                table.AddCell(new Cell().Add(cell3));
+                Cell cell4 = new Cell(1, 1)
+                      .SetTextAlignment(TextAlignment.CENTER)
+                      .Add(new Paragraph(details[i + 3].ToString()).SetFont(font));
+                table.AddCell(new Cell().Add(cell4));
+                Cell cell5 = new Cell(1, 1)
+                      .SetTextAlignment(TextAlignment.CENTER)
+                      .Add(new Paragraph(details[i + 4].ToString()).SetFont(font));
+                table.AddCell(new Cell().Add(cell5));
+                Cell cell6 = new Cell(1, 1)
+                      .SetTextAlignment(TextAlignment.CENTER)
+                      .Add(new Paragraph(details[i + 5].ToString()).SetFont(font));
+                table.AddCell(new Cell().Add(cell6));
+                Cell cell7 = new Cell(1, 1)
+                      .SetTextAlignment(TextAlignment.CENTER)
+                      .Add(new Paragraph(details[i + 6].ToString()).SetFont(font));
+                table.AddCell(new Cell().Add(cell7));
+                Cell cell8 = new Cell(1, 1)
+                      .SetTextAlignment(TextAlignment.CENTER)
+                      .Add(new Paragraph(details[i + 7].ToString()).SetFont(font));
+                table.AddCell(new Cell().Add(cell8));
+
+            }
+            
+
+            doc.Add(table);
+            doc.Close();
+        }
+     
+
+ 
         private void button1_Click(object sender, EventArgs e)
         {
-            ClsPrint _ClsPrint = new ClsPrint(dataGridView1, "header doc text");
+
+            string today_date = Convert.ToString(DateTime.Now.ToLongDateString());
+            string today_time = Convert.ToString(DateTime.Now.ToShortTimeString());
+            ClsPrint _ClsPrint = new ClsPrint(dataGridView1, "Перечень деталей на " + today_date + ", " + today_time);
             _ClsPrint.PrintForm();
+        }
+
+        private void ShowDetail_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                CreateTable(saveFileDialog.FileName);
+            }
         }
     }
 }

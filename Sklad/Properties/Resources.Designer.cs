@@ -59,5 +59,15 @@ namespace Sklad.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] TTF {
+            get {
+                object obj = ResourceManager.GetObject("TTF", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
