@@ -77,6 +77,7 @@ namespace Sklad
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
             warehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -316,6 +317,7 @@ namespace Sklad
             this.ShowdetailMenu,
             this.toolStripSeparator6,
             this.NewMaterialMenu,
+            this.ShowMaterialMenu,
             this.EditMaterialMenu});
             this.DetailMenuItem.Name = "DetailMenuItem";
             this.DetailMenuItem.Size = new System.Drawing.Size(71, 24);
@@ -439,6 +441,12 @@ namespace Sklad
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.selectAllToolStripMenuItem.Text = "Select &All";
             // 
+            // ShowMaterialMenu
+            // 
+            this.ShowMaterialMenu.Name = "ShowMaterialMenu";
+            this.ShowMaterialMenu.Size = new System.Drawing.Size(265, 26);
+            this.ShowMaterialMenu.Text = "Обзор материалов";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -510,6 +518,7 @@ namespace Sklad
         private System.Windows.Forms.ToolStripMenuItem EditMaterialMenu;
         private System.Windows.Forms.ToolStripMenuItem exitMenu;
         private System.Windows.Forms.ToolStripMenuItem showDepartmentMenu;
+        private System.Windows.Forms.ToolStripMenuItem ShowMaterialMenu;
     }
 }
 

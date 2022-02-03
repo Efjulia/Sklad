@@ -45,5 +45,11 @@ namespace Sklad
                 dataGridView1.Rows.Add(s);
      
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClsPrint _ClsPrint = new ClsPrint(dataGridView1, "header doc text");
+            _ClsPrint.PrintForm();
+        }
     }
 }

@@ -45,7 +45,7 @@ namespace Sklad
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(253, 30);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Печать данных";
+            this.button1.Text = "Печать ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -104,7 +104,7 @@ namespace Sklad
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "ReportForm";
-            this.Text = "ReportForm";
+            this.Text = "Склады";
             this.Load += new System.EventHandler(this.ReportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
