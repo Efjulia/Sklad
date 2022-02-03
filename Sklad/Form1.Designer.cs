@@ -144,6 +144,7 @@ namespace Sklad
             this.editshelfmenu.Name = "editshelfmenu";
             this.editshelfmenu.Size = new System.Drawing.Size(254, 26);
             this.editshelfmenu.Text = "Редактировать стеллаж";
+            this.editshelfmenu.Click += new System.EventHandler(this.editshelfmenu_Click);
             // 
             // toolStripSeparator2
             // 

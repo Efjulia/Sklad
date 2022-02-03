@@ -111,6 +111,7 @@ namespace Sklad
         private void newshelfMenu_Click(object sender, EventArgs e)
         {
             NewShelf NSF = new NewShelf();
+            //NewShelf.new_shelf = 0;
             NSF.Show();
         }
 
@@ -199,6 +200,13 @@ namespace Sklad
             EditDepatmentForm EDForm = new EditDepatmentForm();
             EDForm.ShowDialog();
 
+        }
+
+        private void editshelfmenu_Click(object sender, EventArgs e)
+        {
+            EditShelfForm ESF = new EditShelfForm();
+          //  NewShelf.new_shelf = 1;
+            ESF.Show();
         }
     }
 }

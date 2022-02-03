@@ -10,6 +10,7 @@ namespace Sklad
 {
     public partial class NewShelf : Form
     {
+       // public static int new_shelf;
         public NewShelf()
         {
             InitializeComponent();
@@ -24,6 +25,17 @@ namespace Sklad
             textBox6.Enabled = false;
             textBox7.Enabled = false;
             textBox8.Enabled = false;
+            /*if (new_shelf == 0)
+            {
+                button1.Text = "Создать стеллаж";
+
+            }
+            else
+            {
+                button1.Text = "Редактировать стеллаж";
+
+            }*/
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,6 +90,41 @@ namespace Sklad
                 textBox8.Enabled = true;
             }
 
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
 
         }
     }

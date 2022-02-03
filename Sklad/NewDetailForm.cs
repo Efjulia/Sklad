@@ -16,8 +16,8 @@ namespace Sklad
         }
 
         static int id;
-        static int location_id;
-        static int number;
+        static int location_id;//ряд стеллажа
+        static int number;//номер стеллажа
         static int shelf_id;
         static int cell_id;
         static int id_material;
