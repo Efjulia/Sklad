@@ -84,7 +84,7 @@ namespace Sklad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 526);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ShowWarehouseForm";
             this.Text = "Обзор склада";

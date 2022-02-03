@@ -9,99 +9,287 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using System.Reflection;
+using System.Collections;
+using System.Drawing.Printing;
 
 namespace Sklad
 {
+
+    class ClsPrint
+    {
+        #region Variables
+
+        int iCellHeight = 0; //Used to get/set the datagridview cell height
+        int iTotalWidth = 0; //
+        int iRow = 0;//Used as counter
+        bool bFirstPage = false; //Used to check whether we are printing first page
+        bool bNewPage = false;// Used to check whether we are printing a new page
+        int iHeaderHeight = 0; //Used for the header height
+        StringFormat strFormat; //Used to format the grid rows.
+        System.Collections.ArrayList arrColumnLefts = new ArrayList();//Used to save left coordinates of columns
+        System.Collections.ArrayList arrColumnWidths = new ArrayList();//Used to save column widths
+        private PrintDocument _printDocument = new PrintDocument();
+        private DataGridView gw = new DataGridView();
+        private string _ReportHeader;
+
+        #endregion
+
+        public ClsPrint(DataGridView gridview, string ReportHeader)
+        {
+            _printDocument.PrintPage += new PrintPageEventHandler(_printDocument_PrintPage);
+            _printDocument.BeginPrint += new PrintEventHandler(_printDocument_BeginPrint);
+            gw = gridview;
+            _ReportHeader = ReportHeader;
+        }
+
+        public void PrintForm()
+        {
+            ////Open the print dialog
+            //PrintDialog printDialog = new PrintDialog();
+            //printDialog.Document = _printDocument;
+            //printDialog.UseEXDialog = true;
+
+            ////Get the document
+            //if (DialogResult.OK == printDialog.ShowDialog())
+            //{
+            //    _printDocument.DocumentName = "Test Page Print";
+            //    _printDocument.Print();
+            //}
+
+            //Open the print preview dialog
+            PrintPreviewDialog objPPdialog = new PrintPreviewDialog();
+            objPPdialog.Document = _printDocument;
+            objPPdialog.ShowDialog();
+        }
+
+        private void _printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //try
+            //{
+            //Set the left margin
+            int iLeftMargin = e.MarginBounds.Left;
+            //Set the top margin
+            int iTopMargin = e.MarginBounds.Top;
+            //Whether more pages have to print or not
+            bool bMorePagesToPrint = false;
+            int iTmpWidth = 0;
+
+            //For the first page to print set the cell width and header height
+            if (bFirstPage)
+            {
+                foreach (DataGridViewColumn GridCol in gw.Columns)
+                {
+                    iTmpWidth = (int)(Math.Floor((double)((double)GridCol.Width /
+                        (double)iTotalWidth * (double)iTotalWidth *
+                        ((double)e.MarginBounds.Width / (double)iTotalWidth))));
+
+                    iHeaderHeight = (int)(e.Graphics.MeasureString(GridCol.HeaderText,
+                        GridCol.InheritedStyle.Font, iTmpWidth).Height) + 11;
+
+                    // Save width and height of headers
+                    arrColumnLefts.Add(iLeftMargin);
+                    arrColumnWidths.Add(iTmpWidth);
+                    iLeftMargin += iTmpWidth;
+                }
+            }
+            //Loop till all the grid rows not get printed
+            while (iRow <= gw.Rows.Count - 1)
+            {
+                DataGridViewRow GridRow = gw.Rows[iRow];
+                //Set the cell height
+                iCellHeight = GridRow.Height + 5;
+                int iCount = 0;
+                //Check whether the current page settings allows more rows to print
+                if (iTopMargin + iCellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
+                {
+                    bNewPage = true;
+                    bFirstPage = false;
+                    bMorePagesToPrint = true;
+                    break;
+                }
+                else
+                {
+
+                    if (bNewPage)
+                    {
+                        //Draw Header
+                        e.Graphics.DrawString(_ReportHeader,
+                            new Font(gw.Font, FontStyle.Bold),
+                            Brushes.Black, e.MarginBounds.Left,
+                            e.MarginBounds.Top - e.Graphics.MeasureString(_ReportHeader,
+                            new Font(gw.Font, FontStyle.Bold),
+                            e.MarginBounds.Width).Height - 13);
+
+                        String strDate = "";
+                        //Draw Date
+                        e.Graphics.DrawString(strDate,
+                            new Font(gw.Font, FontStyle.Bold), Brushes.Black,
+                            e.MarginBounds.Left +
+                            (e.MarginBounds.Width - e.Graphics.MeasureString(strDate,
+                            new Font(gw.Font, FontStyle.Bold),
+                            e.MarginBounds.Width).Width),
+                            e.MarginBounds.Top - e.Graphics.MeasureString(_ReportHeader,
+                            new Font(new Font(gw.Font, FontStyle.Bold),
+                            FontStyle.Bold), e.MarginBounds.Width).Height - 13);
+
+                        //Draw Columns                 
+                        iTopMargin = e.MarginBounds.Top;
+                        DataGridViewColumn[] _GridCol = new DataGridViewColumn[gw.Columns.Count];
+                        //int colcount = 0;
+                        //Convert ltr to rtl
+                        int colcount = gw.Columns.Count - 1;
+                        foreach (DataGridViewColumn GridCol in gw.Columns)
+                        {
+                            //_GridCol[colcount++] = GridCol;
+                            _GridCol[colcount--] = GridCol;
+                        }
+                        for (int i = (_GridCol.Count() - 1); i >= 0; i--)
+                        {
+                            e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
+                                new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
+                                (int)arrColumnWidths[iCount], iHeaderHeight));
+
+                            e.Graphics.DrawRectangle(Pens.Black,
+                                new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
+                                (int)arrColumnWidths[iCount], iHeaderHeight));
+
+                            e.Graphics.DrawString(_GridCol[i].HeaderText,
+                                _GridCol[i].InheritedStyle.Font,
+                                new SolidBrush(_GridCol[i].InheritedStyle.ForeColor),
+                                new RectangleF((int)arrColumnLefts[iCount], iTopMargin,
+                                (int)arrColumnWidths[iCount], iHeaderHeight), strFormat);
+                            iCount++;
+                        }
+                        bNewPage = false;
+                        iTopMargin += iHeaderHeight;
+                    }
+                    iCount = 0;
+                    DataGridViewCell[] _GridCell = new DataGridViewCell[GridRow.Cells.Count];
+                    //int cellcount = 0;
+                    //Convert ltr to rtl
+                    int cellcount = GridRow.Cells.Count - 1;
+
+                    foreach (DataGridViewCell Cel in GridRow.Cells)
+                    {
+                       // _GridCell[cellcount++] = Cel;
+                        _GridCell[cellcount--] = Cel;
+                    }
+                    //Draw Columns Contents                
+                    for (int i = (_GridCell.Count() - 1); i >= 0; i--)
+                    {
+                        if (_GridCell[i].Value != null)
+                        {
+                            e.Graphics.DrawString(_GridCell[i].FormattedValue.ToString(),
+                                _GridCell[i].InheritedStyle.Font,
+                                new SolidBrush(_GridCell[i].InheritedStyle.ForeColor),
+                                new RectangleF((int)arrColumnLefts[iCount],
+                                (float)iTopMargin,
+                                (int)arrColumnWidths[iCount], (float)iCellHeight),
+                                strFormat);
+                        }
+                        //Drawing Cells Borders 
+                        e.Graphics.DrawRectangle(Pens.Black,
+                            new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
+                            (int)arrColumnWidths[iCount], iCellHeight));
+                        iCount++;
+                    }
+                }
+                iRow++;
+                iTopMargin += iCellHeight;
+            }
+            //If more lines exist, print another page.
+            if (bMorePagesToPrint)
+                e.HasMorePages = true;
+            else
+                e.HasMorePages = false;
+            //}
+            //catch (Exception exc)
+            //{
+            //    MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK,
+            //       MessageBoxIcon.Error);
+            //}
+        }
+
+        private void _printDocument_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+                strFormat = new StringFormat();
+                strFormat.Alignment = StringAlignment.Center;
+                strFormat.LineAlignment = StringAlignment.Center;
+                strFormat.Trimming = StringTrimming.EllipsisCharacter;
+
+                arrColumnLefts.Clear();
+                arrColumnWidths.Clear();
+                iCellHeight = 0;
+                iRow = 0;
+                bFirstPage = true;
+                bNewPage = true;
+
+                // Calculating Total Widths
+                iTotalWidth = 0;
+                foreach (DataGridViewColumn dgvGridCol in gw.Columns)
+                {
+                    iTotalWidth += dgvGridCol.Width;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка печати", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+    }
+
     public partial class ReportForm : Form
     {
         public ReportForm()
         {
             InitializeComponent();
+         
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+            ClsPrint _ClsPrint = new ClsPrint(dataGridView1, "Заголовок");
+            _ClsPrint.PrintForm();
 
-            string today_date = Convert.ToString(DateTime.Now.ToLongDateString());
-            string today_time = Convert.ToString(DateTime.Now.ToShortTimeString());
-            object oMissing = System.Reflection.Missing.Value;
-            object oEndOfDoc = "\\endofdoc";
-            try
+
+        }
+
+        private void ReportForm_Load(object sender, EventArgs e)
+        {
+           
+            string Text = "SELECT `Name`, `address`, `phone`, `size`  FROM `warehouse`";
+            System.Collections.Generic.List<string> warehouses = SQLClass.Select(Text);
+            //int y = 10;
+            List<string[]> data = new List<string[]>();
+            for (int i = 0; i < warehouses.Count - 3; i += 4)
             {
-                //Запуск и создание нового документа
-                Word._Application oWord;
-            Word._Document oDoc;
-            oWord = new Word.Application();
-            oWord.Visible = true;
-            oDoc = oWord.Documents.Add(ref oMissing, ref oMissing,
-            ref oMissing, ref oMissing);
-
-            //Вставка параграфа
-            Word.Paragraph oPara1;
-            oPara1 = oDoc.Content.Paragraphs.Add(ref oMissing);
-            oPara1.Range.Text = "Новый текст" + today_date;
-            oPara1.Range.Font.Bold = 1;
-            oPara1.Format.SpaceAfter = 24;    
-            oPara1.Range.InsertParagraphAfter();
-
-            //Вставка параграфа
-            Word.Paragraph oPara2;
-            object oRng = oDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
-            oPara2 = oDoc.Content.Paragraphs.Add(ref oRng);
-            oPara2.Range.Text = "Новый текст" + today_time;
-            oPara2.Format.SpaceAfter = 6;
-            oPara2.Range.InsertParagraphAfter();
-
-            //Insert another paragraph.
-            Word.Paragraph oPara3;
-            oRng = oDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
-            oPara3 = oDoc.Content.Paragraphs.Add(ref oRng);
-            oPara3.Range.Text = "Заголовок таблицы:";
-            oPara3.Range.Font.Bold = 0;
-            oPara3.Format.SpaceAfter = 24;
-            oPara3.Range.InsertParagraphAfter();
-
-            //Вставка таблицы 3*5
-            Word.Table oTable;
-            Word.Range wrdRng = oDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
-            oTable = oDoc.Tables.Add(wrdRng, 3, 5, ref oMissing, ref oMissing);
-            oTable.Range.ParagraphFormat.SpaceAfter = 6;
-            int r, c;
-            string strText;
-            for (r = 1; r <= 3; r++)
-                for (c = 1; c <= 5; c++)
-                {
-                    strText = "r" + r + "c" + c;
-                    oTable.Cell(r, c).Range.Text = strText;
-                }
-            oTable.Rows[1].Range.Font.Bold = 1;
-            oTable.Rows[1].Range.Font.Italic = 1;
-
-            //Добавить текст.
-            Word.Paragraph oPara4;
-            oRng = oDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
-            oPara4 = oDoc.Content.Paragraphs.Add(ref oRng);
-            oPara4.Range.InsertParagraphBefore();
-            oPara4.Range.Text = "Новый текст";
-            oPara4.Format.SpaceAfter = 24;
+                data.Add(new string[4]);
+                data[data.Count - 1][0] = warehouses[i].ToString();
+                data[data.Count - 1][1] = warehouses[i + 1].ToString();
+                data[data.Count - 1][2] = warehouses[i + 2].ToString();
+                data[data.Count - 1][3] = warehouses[i + 3].ToString();
+                
 
             }
-            catch (Exception ex)
-            {
-                const string message = "Проблемы с запуском Microsoft Word\n\r" + "Показать ошибку?";
-                const string caption = "Проблемы с запуском";
-                var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.YesNo,
-                                             MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    MessageBox.Show(ex.ToString()); ;
+            foreach (string[] s in data)
+                dataGridView1.Rows.Add(s);
 
-                }
-            }
-            this.Close();
-        
+
+        }
+
+       
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            
+            MessageBox.Show("1111");
+           /* Bitmap bmp = new Bitmap(dataGridView1.Size.Width + 10, dataGridView1.Size.Height + 10);
+            dataGridView1.DrawToBitmap(bmp, dataGridView1.Bounds);
+            e.Graphics.DrawImage(bmp, 0, 0);*/
         }
     }
 }
