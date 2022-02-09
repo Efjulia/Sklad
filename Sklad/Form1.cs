@@ -208,5 +208,23 @@ namespace Sklad
           //  NewShelf.new_shelf = 1;
             ESF.Show();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          AboutForm AbForm = new AboutForm();
+            AbForm.ShowDialog();
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSearch SDForm = new FormSearch();
+            SDForm.ShowDialog();
+        }
+
+        private void PrintShtrih_Click(object sender, EventArgs e)
+        {
+            genbarcode GBrC = new genbarcode();
+            GBrC.ShowDialog();
+        }
     }
 }

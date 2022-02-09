@@ -51,7 +51,6 @@ namespace Sklad
             this.PrintShtrih = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +64,7 @@ namespace Sklad
             this.ShowdetailMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.NewMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.EditMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.UsersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewuserMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +77,6 @@ namespace Sklad
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ShowMaterialMenu = new System.Windows.Forms.ToolStripMenuItem();
             warehouseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -236,12 +235,12 @@ namespace Sklad
             this.PrintShtrih.Name = "PrintShtrih";
             this.PrintShtrih.Size = new System.Drawing.Size(190, 26);
             this.PrintShtrih.Text = "Печать";
+            this.PrintShtrih.Click += new System.EventHandler(this.PrintShtrih_Click);
             // 
             // helpMenuItem
             // 
             this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.contentsToolStripMenuItem,
-            this.indexToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.toolStripSeparator5,
             this.aboutToolStripMenuItem});
@@ -255,17 +254,12 @@ namespace Sklad
             this.contentsToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.contentsToolStripMenuItem.Text = "&Помощь";
             // 
-            // indexToolStripMenuItem
-            // 
-            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
-            this.indexToolStripMenuItem.Text = "&Настройки";
-            // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.searchToolStripMenuItem.Text = "&Поиск";
+            this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -277,6 +271,7 @@ namespace Sklad
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.aboutToolStripMenuItem.Text = "&О программе...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // departmentMenuItem
             // 
@@ -354,6 +349,12 @@ namespace Sklad
             this.NewMaterialMenu.Size = new System.Drawing.Size(265, 26);
             this.NewMaterialMenu.Text = "Добавить материал";
             this.NewMaterialMenu.Click += new System.EventHandler(this.NewMaterialMenu_Click);
+            // 
+            // ShowMaterialMenu
+            // 
+            this.ShowMaterialMenu.Name = "ShowMaterialMenu";
+            this.ShowMaterialMenu.Size = new System.Drawing.Size(265, 26);
+            this.ShowMaterialMenu.Text = "Обзор материалов";
             // 
             // EditMaterialMenu
             // 
@@ -441,12 +442,6 @@ namespace Sklad
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.selectAllToolStripMenuItem.Text = "Select &All";
             // 
-            // ShowMaterialMenu
-            // 
-            this.ShowMaterialMenu.Name = "ShowMaterialMenu";
-            this.ShowMaterialMenu.Size = new System.Drawing.Size(265, 26);
-            this.ShowMaterialMenu.Text = "Обзор материалов";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -474,7 +469,6 @@ namespace Sklad
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

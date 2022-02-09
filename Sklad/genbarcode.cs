@@ -11,11 +11,12 @@ namespace Sklad
 {
     public partial class genbarcode : Form
     {
+
         public genbarcode()
         {
             InitializeComponent();
         }
-
+  
         private void button2_Click(object sender, EventArgs e)
         {
             //button1.Enabled = false;
@@ -67,9 +68,11 @@ namespace Sklad
             }*/
         }
 
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             button1.Enabled = false;
+           
 
         }
 
@@ -82,6 +85,14 @@ namespace Sklad
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             pictureBox1.Height = Convert.ToInt32(comboBox2.Text);
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= '0') && (e.KeyChar <= '9'))
+                return;
+            e.Handled = true;
+            
         }
     }
 }
