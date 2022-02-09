@@ -80,7 +80,7 @@ namespace Sklad
                 location_id = Convert.ToInt32(comboBox2.Text); // ряд
                 number = Convert.ToInt32(comboBox4.Text);
                 cell = Convert.ToInt32(comboBox1.Text);
-                id_detail_ident = Convert.ToString(d_detail) + Convert.ToString(location_id) + Convert.ToString(number) + Convert.ToString(cell); 
+                id_detail_ident =  "0" + Convert.ToString(d_detail) +  Convert.ToString(location_id) + Convert.ToString(number) + Convert.ToString(cell); 
                //Close();
             }
             else { MessageBox.Show("Не все поля заполнены"); }

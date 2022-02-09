@@ -73,7 +73,7 @@ namespace Sklad
                 //  Graphics.FromImage(bmp).Clear(Color.Black);
 
             }
-
+           
         }
 
         private void printDocument1_PrintPage_1(object sender, System.Drawing.Printing.PrintPageEventArgs e)
