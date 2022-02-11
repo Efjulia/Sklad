@@ -80,7 +80,8 @@ namespace Sklad
                 location_id = Convert.ToInt32(comboBox2.Text); // ряд
                 number = Convert.ToInt32(comboBox4.Text);
                 cell = Convert.ToInt32(comboBox1.Text);
-                id_detail_ident =  "0" + Convert.ToString(d_detail) +  Convert.ToString(location_id) + Convert.ToString(number) + Convert.ToString(cell); 
+                //запоминаем идентификационный номер детали для открытия окна генерации
+                id_detail_ident =  "0" + Convert.ToString(d_detail) + "00" + Convert.ToString(location_id) + "00" + Convert.ToString(number) + "00" + Convert.ToString(cell); 
                //Close();
             }
             else { MessageBox.Show("Не все поля заполнены"); }
@@ -254,10 +255,15 @@ namespace Sklad
             //идентификатор id детали в БД, номер ряда, номер стеллажа, номер ячейки
 
             GenbarcodeForm GenForm = new GenbarcodeForm();
-            GenForm.id_detail = Convert.ToInt32(id_detail_ident);
+            GenForm.id_detail = Convert.ToInt64(id_detail_ident);
             GenForm.name_detail = textBox1.Text;
             GenForm.ShowDialog();
             Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

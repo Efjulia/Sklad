@@ -226,5 +226,11 @@ namespace Sklad
             genbarcode GBrC = new genbarcode();
             GBrC.ShowDialog();
         }
+
+        private void editdetailMenu_Click(object sender, EventArgs e)
+        {
+            EditDetailForm EDForm = new EditDetailForm();
+            EDForm.ShowDialog();
+        }
     }
 }

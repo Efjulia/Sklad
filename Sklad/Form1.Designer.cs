@@ -163,6 +163,7 @@ namespace Sklad
             this.editcellmenu.Name = "editcellmenu";
             this.editcellmenu.Size = new System.Drawing.Size(254, 26);
             this.editcellmenu.Text = "Редактировать ячейку";
+            this.editcellmenu.Visible = false;
             // 
             // menuStrip1
             // 
@@ -330,6 +331,7 @@ namespace Sklad
             this.editdetailMenu.Name = "editdetailMenu";
             this.editdetailMenu.Size = new System.Drawing.Size(265, 26);
             this.editdetailMenu.Text = "Редактировать деталь";
+            this.editdetailMenu.Click += new System.EventHandler(this.editdetailMenu_Click);
             // 
             // ShowdetailMenu
             // 
@@ -361,6 +363,7 @@ namespace Sklad
             this.EditMaterialMenu.Name = "EditMaterialMenu";
             this.EditMaterialMenu.Size = new System.Drawing.Size(265, 26);
             this.EditMaterialMenu.Text = "Редактировать материал";
+            this.EditMaterialMenu.Visible = false;
             // 
             // UsersMenuItem
             // 

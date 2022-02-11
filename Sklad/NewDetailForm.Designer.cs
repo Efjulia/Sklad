@@ -60,7 +60,7 @@ namespace Sklad
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(224, 31);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Деталь";
+            this.button1.Text = "Сохранить деталь";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -195,6 +195,7 @@ namespace Sklad
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(296, 28);
             this.comboBox1.TabIndex = 31;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -270,7 +271,7 @@ namespace Sklad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 559);
+            this.ClientSize = new System.Drawing.Size(727, 680);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

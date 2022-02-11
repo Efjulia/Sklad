@@ -20,7 +20,7 @@ namespace Sklad
         private void button2_Click(object sender, EventArgs e)
         {
             //button1.Enabled = false;
-            if (textBox1.Text.Trim() == "")
+            if (textBox1.Text.Trim() == "" || textBox2.Text.Trim() == "")
             {
                 MessageBox.Show("Ошибка ввода текста", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -39,8 +39,21 @@ namespace Sklad
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            printDocument1.Print();
+        { try { printDocument1.Print(); }
+            catch (Exception ex)
+            {
+                const string message = "Проблемы с подключением к принтеру \n\r" + "Показать ошибку?";
+                const string caption = "Проблемы с подключением";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    MessageBox.Show(ex.ToString()); ;
+
+                }
+            }
+           
         }
 
         
@@ -60,7 +73,7 @@ namespace Sklad
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString("Название детали", new Font("Times New Roman", 14), Brushes.Black, 10, 10);
+            e.Graphics.DrawString(textBox2.Text + textBox1.Text, new Font("Times New Roman", 14), Brushes.Black, 10, 10);
             e.Graphics.DrawImage(pictureBox1.Image, 10, 30);
            /* using (Graphics dg = e.Graphics)
             { 

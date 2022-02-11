@@ -11,7 +11,7 @@ namespace Sklad
 {
     public partial class GenbarcodeForm : Form
     {
-        public int id_detail = 0;
+        public long id_detail = 0;
         public string name_detail = "";
         public GenbarcodeForm()
         {
@@ -39,6 +39,7 @@ namespace Sklad
         private void GenbarcodeForm_Load(object sender, EventArgs e)
         {
             textBox1.Text = Convert.ToString(id_detail);
+            textBox2.Text = name_detail + textBox1.Text;
             pictureBox1.Width = Convert.ToInt32(comboBox1.Text);
             pictureBox1.Height = Convert.ToInt32(comboBox2.Text);
 
@@ -47,7 +48,21 @@ namespace Sklad
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            printDocument1.Print();
+            try { printDocument1.Print();}
+            catch (Exception ex)
+            {
+                const string message = "Проблемы с подключением к принтеру \n\r" + "Показать ошибку?";
+                const string caption = "Проблемы с подключением";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    MessageBox.Show(ex.ToString()); ;
+
+                }
+            }
+
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -78,7 +93,7 @@ namespace Sklad
 
         private void printDocument1_PrintPage_1(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString(name_detail, new Font("Times New Roman", 14), Brushes.Black, 10, 10);
+            e.Graphics.DrawString(name_detail + textBox1.Text, new Font("Times New Roman", 14), Brushes.Black, 10, 10);
             e.Graphics.DrawImage(pictureBox1.Image, 10, 30);
             /* using (Graphics dg = e.Graphics)
              { 
