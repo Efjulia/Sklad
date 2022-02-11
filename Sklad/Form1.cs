@@ -249,5 +249,16 @@ namespace Sklad
         {
 
         }
+
+        private void helpMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void contentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm HelpF = new HelpForm();
+            HelpF.ShowDialog();
+        }
     }
 }
