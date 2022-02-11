@@ -41,6 +41,8 @@ namespace Sklad
                 string Text_0 = "SELECT  `role` FROM `users` WHERE `login` = " + "'" + textBox1.Text + "'"; 
                 System.Collections.Generic.List<string> user_current = SQLClass.Select(Text_0);
                 user_role = Convert.ToInt32(user_current[0].ToString());
+
+                user_name = textBox1.Text;
                 this.Close();}
                 
             else

@@ -72,22 +72,27 @@ namespace Sklad
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*this.Hide();
+            pictureBox1.Image = Properties.Resources._333;
+            label2.Text = Autentification.user_name;
+            this.Hide();
             Autentification AUform = new Autentification();
             AUform.ShowDialog();
+           // label2.Text = Autentification.user_name;
             this.Show();
             if (Autentification.user_role == 2)
             {
                 UsersMenuItem.Visible = false;
                 newwarehouseMenu.Visible = false;
                 editwarehouseMenu.Visible = false;
+                label2.Text = Autentification.user_name;
             }
             else { UsersMenuItem.Visible = true;
                 newwarehouseMenu.Visible = true;
                 editwarehouseMenu.Visible = true;
-                
-            }*/
-          //  MessageBox.Show(Convert.ToString(Autentification.user_role));
+                label2.Text = Autentification.user_name;
+
+            }
+            //  MessageBox.Show(Convert.ToString(Autentification.user_role));
         }
 
         private void NewuserMenu_Click(object sender, EventArgs e)
@@ -156,12 +161,14 @@ namespace Sklad
                 UsersMenuItem.Visible = false;
                 newwarehouseMenu.Visible = false;
                 editwarehouseMenu.Visible = false;
+                label2.Text = Autentification.user_name;
             }
             else
             {
                 UsersMenuItem.Visible = true;
                 newwarehouseMenu.Visible = true;
                 editwarehouseMenu.Visible = true;
+                label2.Text = Autentification.user_name;
             }
             //  MessageBox.Show(Convert.ToString(Autentification.user_role));
         }
@@ -231,6 +238,16 @@ namespace Sklad
         {
             EditDetailForm EDForm = new EditDetailForm();
             EDForm.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
